@@ -1,8 +1,13 @@
 @import './variables';
-  
+
 
 body{
-  font-family:'Lato',sans-serif;
-  -webkit-font-smoothing:antialiased ;
-   color:$dark;
+  background:$primary;
+}
+.container{
+  background-color:red;
+}
+.nav{
+   
+  flex-direction:row reverse;
 }
