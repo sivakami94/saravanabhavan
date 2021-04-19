@@ -6,11 +6,12 @@ function initroute(app)
 {
     app.get('/', homecontrollers().index)
 
-    app.get('/cart', cartcontrollers().index)
-
     app.get('/login', authcontrollers().login)
 
     app.get('/register', authcontrollers().register)
+
+    app.get('/cart', cartcontrollers().index)
+    app.post('/update-cart',cartcontrollers().update)
 }
 
 module.exports=initroute

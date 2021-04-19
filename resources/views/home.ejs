@@ -3,17 +3,23 @@
         <input class="form-control  mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+     
       <div class="row">
+        <% saravanabhavans.forEach(function(saravanabhavan){ %>
         <div class="col-sm-4 col-md-3">
           <div class="card p-3 m-sm-3" style="width: 250px;">
-            <img src="./Images/card1.jpg"  class="card-img-top" alt="...">
+            <h5><%= saravanabhavan.name %></h5>
+            <img src="./Images/<%=saravanabhavan.image %>"  class="card-img-top" alt="...">
             <div class="card-body">
-              <h4 class="card-text">50<button class="btn btn-outline-danger float-right" type="submit">+Add</button></h4>
+              <h4 data-saravanabhavan="<%= JSON.stringify(saravanabhavan) %>"class="add-to-cart card-text"><%= saravanabhavan.price %><button class="btn btn-outline-danger float-right" type="submit">+Add</button></h4>
 
             </div>
           </div>
         </div>
-        <div class="col-sm-4 col-md-3">
+        <% }) %>
+      </div>
+ 
+    <!--    <div class="col-sm-4 col-md-3">
           <div class="card p-3 m-sm-3" style="width: 250px;">
             <img src="./Images/card2.jpg" class="card-img-top" alt="...">
             <div class="card-body">
@@ -87,8 +93,8 @@
       <h4 class="card-text">50<button class="btn btn-outline-danger float-right" type="submit">+Add</button></h4>
     </div>
   </div>
-</div>
-</div>
+</div>-->
+
 </div>
   
 

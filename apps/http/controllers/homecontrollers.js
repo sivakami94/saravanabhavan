@@ -1,13 +1,14 @@
 const Menu=require("../../models/menu")
 function homecontrollers(){
     return{
-        index(req,res)
+        async index(req,res)
         {
-             Menu.find().then(function(saravanabhavans){
-                 console.log(saravanabhavans)
-                  return res.render("home",{saravanabhavans:saravanabhavans})
-             })
+            const saravanabhavans= await Menu.find()
+            
+              return res.render("home",{saravanabhavans: saravanabhavans})
+          
        }
+      
 
     }
 }
