@@ -1,14 +1,17 @@
 import axios from 'axios'
+import Noty from 'noty'
 let addToCart =document.querySelectorAll(".add-to-cart");
-let cartCounter=document.querySelector("#cartCounter");
+let cartCounter=document.getElementById("cartCounter");
 function updateCart(saravanabhavan){
 axios.post("/update-cart",saravanabhavan).then(res =>{
-           console.log(res)
-          cartCounter.innerText=res.data.totalQty
-         // cartCounter.innerHTML=res.data.totalQty;
-        //   document.getElementById("cartCounter").innerHTML=+res.data.totalQty;
-            
-            
+          cartCounter.innerHTML= +res.data.totalQty
+     //   new Noty({
+      //      type:"success",
+      //      timeout:1000,
+       //     text: "Notification text",
+       //     progressBar:false,
+           
+       //   }).show();
 })
 }
 

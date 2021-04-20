@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav d-flex row-right">
               <li class="nav-item">
-                <a class="nav-link" href="#">Menu</a>
+                <a class="nav-link" href="/">Menu</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Offers</a>
@@ -35,8 +35,8 @@
                 <a class="nav-link" href="/login">Login</a>
             </li>
             <li class="nav-item ">
-              <span id="cartCounter"><%= session.cart.totalQty %></span>
                 <a class="nav-link" href="/cart">
+                  <span id="cartCounter"><%= session.cart ? session.cart.totalQty : ' ' %></span>
                   <img class="float-right" src="./Images/cart.jpg" width="30px" height="30px"></a>
             </li>
           </ul>

@@ -1,7 +1,7 @@
 
 const homecontrollers=require("../apps/http/controllers/homecontrollers")
 const authcontrollers=require("../apps/http/controllers/authcontrollers")
-const cartcontrollers=require("../apps/http/controllers/cartcontrollers")
+const cartcontrollers=require("../apps/http/controllers/customers/cartcontrollers")
 function initroute(app)
 {
     app.get('/', homecontrollers().index)

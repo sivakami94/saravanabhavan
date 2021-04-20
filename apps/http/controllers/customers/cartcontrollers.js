@@ -1,5 +1,5 @@
 
-const { update}=require("../../models/menu")
+const { update}=require("../../../models/menu")
 function cartcontrollers(){
     return{
         index(req,res)
@@ -24,7 +24,6 @@ function cartcontrollers(){
         }
         let cart=req.session.cart
       
-        console.log(req.body)
 //Check if item does not exist in cart
      if(!cart.items[req.body._id]){
              cart.items[req.body._id]={

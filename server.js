@@ -43,6 +43,7 @@ app.use(express.json())
 //Global middleware
 app.use((req,res,next)=>{
     res.locals.session=req.session
+    next()
 })
 app.use(expressLayout)
 app.set('views', path.join(__dirname, '/resources/views'))
