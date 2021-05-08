@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import {initAdmin} from './admin'
+
 let addToCart =document.querySelectorAll(".add-to-cart");
 let cartCounter=document.getElementById("cartCounter");
 function updateCart(saravanabhavan){
@@ -10,7 +12,7 @@ axios.post("/update-cart",saravanabhavan).then(res =>{
 }
 addToCart.forEach((btn)=> {
     btn.addEventListener("click",(e) =>{
-
+      
         let saravanabhavan=JSON.parse(btn.dataset.saravanabhavan)
      
          updateCart(saravanabhavan)
@@ -18,4 +20,7 @@ addToCart.forEach((btn)=> {
     })
 })
 
- 
+
+
+
+initAdmin()
