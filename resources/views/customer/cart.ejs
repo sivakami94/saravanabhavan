@@ -1,3 +1,5 @@
+<%- include("./partials/header.ejs") %>
+
 <section class="cart">
 <% if(session.cart) { %>
     <div class="container-fuild bg-white p-5 text-center"> 
@@ -56,3 +58,5 @@
                </div>
           </section>
           <% } %>
+
+          <%- include("./partials/footer.ejs") %>
