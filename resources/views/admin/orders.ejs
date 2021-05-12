@@ -1,4 +1,4 @@
-<%- include("../partials/header.ejs") %>
+
 
 <div class="container mx-auto">
     <h1>All Orders</h1>
@@ -15,7 +15,47 @@
       </tr>
     </thead>
     <tbody id="orderTableBody">
+     <% orders.forEach(function(order) { %>
+      
+               <tr>
+               <td>
+               <p> <%= order._id %></p>
+ 
+               
+              
+              
+              </td>
+         <td>
+             <%= order.customerId.name  %>
+         </td>
+         <td>
+              <%= order.address %>
+         </td>
+         <td>
+        <form action ="/admin/order/status" method="POST"class=" form-group  m-3 p-4 bg-light ">
+              <input  type="hidden" name="orderId"  class="form-control" value="<%= order._id %>" >
+        <select name="status" onchange="this.form.submit()">
+         <option value="order_placed">
+          <%= order.status === 'order_placed'? 'selected' : '' %> placed </option>
+         <option value="Confirmed">
+         <%= order.status=== 'Confirmed'? 'selected' : '' %> Confirmed </option>
+         <option value="Prepared">
+         <%= order.status=== 'Prepared'? 'selected' :'' %> Prepared</option>
+         <option value="Delivered">
+         <%= order.status=== 'Delivered'? 'selected' :'' %> Delivered</option>
+         <option value="Completed">
+        <%= order.status=== 'Completed'? 'selected' :''%>Completed</option>
+         </select>
+        </input>
+     
+         </form>
+        </td>
+        <td>
+             <%= moment(order.createdAt).format("hh:mm A") %>
+        </td>
+        </tr>
+      
+     <% }) %>
     </tbody>
   </table>
 </div>
-<%- include("./partials/footer.ejs") %>

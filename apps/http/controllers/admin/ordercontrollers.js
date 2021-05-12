@@ -1,4 +1,7 @@
 const order = require("../../../models/order")
+const moment=require("moment")
+const axios=require("axios")
+
 
 function ordercontrollers()
 {
@@ -15,7 +18,21 @@ function ordercontrollers()
            }
            else
            {
-               return res.render('admin/orders')
+            let orders=[]
+       
+           
+            axios.get('/admin/orders',{
+                headers:{
+                    "X-Requested-With":"XMLHttpRequest"
+                }
+            }).then(res => {
+               orders=res.data
+               console.log(orders)
+              // return res.render('admin/orders',{orders:orders},{moment:moment})
+            }).catch(err =>{
+                console.log(err)
+            })
+              
            }
         })
      }

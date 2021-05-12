@@ -4,7 +4,7 @@ function cartcontrollers(){
     return{
         index(req,res)
         {
-            res.render("customer/cart")
+            res.render("/cart")
         },
         update(req,res){
         //  let cart={

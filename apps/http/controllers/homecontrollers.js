@@ -1,11 +1,12 @@
 const Menu=require("../../models/menu")
+list=[]
 function homecontrollers(){
     return{
         async index(req,res)
         {
-            const saravanabhavans= await Menu.find()
+            const menus= await Menu.find()
             
-              return res.render("home",{saravanabhavans: saravanabhavans})
+              return res.render("home",{menus: menus})
           
        }
            

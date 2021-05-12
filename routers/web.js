@@ -6,15 +6,17 @@ const ordercontrollers=require("../apps/http/controllers/customers/ordercontroll
 
 const Adminordercontrollers=require("../apps/http/controllers/admin/ordercontrollers")
 //middlewares
-//const guest=require('../apps/http/middleware/guest')
+const guest=require('../apps/http/middleware/guest')
 const auth=require("../apps/http/middleware/auth")
 const admin=require("../apps/http/middleware/admin")
 
 function initroute(app)
 {
-    app.get('/', authcontrollers().login)
+   
+    app.get('/', guest,authcontrollers().login)
     app.post('/',authcontrollers().postLogin)
-    app.get('/register', authcontrollers().register)
+    
+    app.get('/register',guest, authcontrollers().register)
     app.post('/register', authcontrollers().postregister)
     app.post('/logout',authcontrollers().logout)
 
@@ -24,8 +26,8 @@ function initroute(app)
     app.post('/update-cart',cartcontrollers().update)
 
     //customer routes
-    app.post('/orders',auth,ordercontrollers().store)
-    app.get('/customer/orders',auth,ordercontrollers().index)
+    app.post('customer/orders',auth,ordercontrollers().store)
+    app.get('/orders',auth,ordercontrollers().index)
 
     //Admin routes
     app.get('/admin/orders',admin,Adminordercontrollers().index)

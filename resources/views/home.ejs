@@ -1,29 +1,90 @@
-<%- include("./partials/header.ejs") %>
-   
-   <form class="form-inline justify-content-center my-2 ">
-        <input class="form-control  mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-     
-      <div class="row">
-        <% saravanabhavans.forEach(function(saravanabhavan){ %>
-        <div class="col-sm-4 col-md-3">
-          <div class="card p-3 m-sm-3" style="width: 250px;">
-            <h5><%= saravanabhavan.name %></h5>
-            <img src="./Images/<%=saravanabhavan.image %>"  class="card-img-top" alt="...">
-            <div class="card-body">
-              <h4 data-saravanabhavan="<%= JSON.stringify(saravanabhavan) %>"class="add-to-cart card-text"><%= saravanabhavan.price %><button class="btn btn-outline-danger float-right" type="submit">+Add</button></h4>
 
+  
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col-3">
+              <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+               <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Dosa </a>
+               <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Idly</a>
+               <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Parotta</a>
+               <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Briyani</a>
             </div>
+            </div>
+<div class="tab-content" id="v-pills-tabContent">
+  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+    <div class="row">
+      
+      <% menus.forEach(function(menu){ %>
+        <% if(menu.category=="Dosa") { %>
+      <div class="col-sm-6 col-lg-4">
+        <div class="card p-3 m-sm-3" style="width: 250px;">
+          <h5><%= menu.name %></h5>
+          <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
+          <div class="card-body">
+            <h4 data-menu="<%= JSON.stringify(menu) %>"class="add-to-cart card-text"><%= menu.price %><button class="btn btn-outline-danger float-right" type="submit">+Add</button></h4>
+
           </div>
         </div>
-        <% }) %>
       </div>
+      <% } %>
+      <% }) %>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+    <div class="row">
+      <% menus.forEach(function(menu){ %>
+        <% if(menu.category=="Idly") { %>
+      <div class="col-sm-4 col-md-3">
+        <div class="card p-3 m-sm-3" style="width: 250px;">
+          <h5><%= menu.name %></h5>
+          <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
+          <div class="card-body">
+            <h4 data-menu="<%= JSON.stringify(menu) %>"class="add-to-cart card-text"><%= menu.price %><button class="btn btn-outline-danger float-right" type="submit">+Add</button></h4>
+
+          </div>
+        </div>
+      </div>
+      <% } %>
+      <% }) %>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+    <div class="row">
+      <% menus.forEach(function(menu){ %>
+        <% if(menu.category=="Parotta"){ %>
+      <div class="col-sm-4 col-md-3">
+        <div class="card p-3 m-sm-3" style="width: 250px;">
+          <h5><%= menu.name %></h5>
+          <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
+          <div class="card-body">
+            <h4 data-menu="<%= JSON.stringify(menu) %>"class="add-to-cart card-text"><%= menu.price %><button class="btn btn-outline-danger float-right" type="submit">+Add</button></h4>
+
+          </div>
+        </div>
+      </div>
+      <% } %>
+      <% }) %>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+    <div class="row">
+      <% menus.forEach(function(menu){ %>
+        <% if(menu.category=="Briyani") { %>
+      <div class="col-sm-4 col-md-3">
+        <div class="card p-3 m-sm-3" style="width: 250px;">
+          <h5><%= menu.name %></h5>
+          <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
+          <div class="card-body">
+            <h4 data-menu="<%= JSON.stringify(menu) %>"class="add-to-cart card-text"><%= menu.price %><button class="btn btn-outline-danger float-right" type="submit">+Add</button></h4>
+
+          </div>
+        </div>
+      </div>
+      <% } %>
+      <% }) %>
+    </div>
+  </div>
 </div>
-  
+</div>
 
-<%- include("./partials/footer.ejs") %>
-
-
-
-
+</div>

@@ -2,9 +2,9 @@ const User=require("../../models/user")
 const bcrypt=require("bcrypt")
 const passport = require("passport")
 function authcontrollers(){
-        const _getRedirectUrl =(req) =>{
-            return req.user.name ==='admin' ? '/admin/orders' : '/customer/orders'
-        }
+       const get_redirect=(req) => {
+          return req.user.name==="admin"? "admin/orders" : "/orders" 
+       }
 
     return{
         login(req,res)
@@ -34,7 +34,7 @@ function authcontrollers(){
                         return next(err)
                     }
 
-                    return res.redirect(_getRedirectUrl(req))
+                    return res.redirect(get_redirect(req))
                 })
             })(req,res,next)
         },
@@ -44,14 +44,14 @@ function authcontrollers(){
         },
       async postregister(req,res)
         {
-            const {name,email,password}=req.body
+            const {name,email,password,confirmpassword}=req.body
            
             //validate request
-            if(!name || !email || !password ){
+            if(!name || !email || !password || !confirmpassword ){
               req.flash('error',"All fields are required")
               req.flash('name',name)
               req.flash('email',email)
-             
+             req.flash('password',password)
             
             return res.redirect("/register")
         }
@@ -63,11 +63,16 @@ function authcontrollers(){
                 req.flash('name',name)
                 req.flash('email',email)
                 req.flash('password',password)
-               // req.flash('confirmpassword',confirmpassword)
+                req.flash('confirmpassword',confirmpassword)
                 return res.redirect("/register")
             }
         })
     
+        if(password!=confirmpassword)
+        {
+            req.flash('error1',"password not match")
+            return res.redirect("/register")
+        }
         //Hash password
 const hashedPassword =await bcrypt.hash(password,10)
 
@@ -76,16 +81,18 @@ const hashedPassword =await bcrypt.hash(password,10)
             name,
             email,
             password:hashedPassword,
-          //  confirmpassword:hashedPassword
+           confirmpassword:hashedPassword
         })
-      
+    
+       
        user.save().then((user) =>{
               return res.redirect('/menu')
+       
    }).catch(err =>{
                req.flash('error','Something went wrong')
                 return res.redirect('/register')
      })  
-    
+      
      },
     
      logout(req,res){

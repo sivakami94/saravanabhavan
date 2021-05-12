@@ -1,27 +1,40 @@
-<form action="/register" method="POST"class=" form-group  m-3 p-4 bg-light " method="post">
+
+<div class="registersection1">
+    <img src="./Images/register.jpg" width="100%"height="auto">
+</div>
+
+<div class="registersection2">
+    <div class="col-md-6 col-lg-12 " >
+<form action="/register" method="POST"class=" form-group " method="post">
     
-    <h1 class="text-dark text-center "><img src="./Images/logo.jpg" width="50px" height="50px">Hotel Shree Saravanabhavan</h1>
-    <h1 class=" text-center text-warning  ">Register</h1>
+    <h1 class=" text-center "><img src="./Images/logo.jpg" width="50px" height="50px">Hotel Shree Saravanabhavan</h1>
+    <h1 class=" text-center  ">Register</h1>
     <% if(messages.error){ %>
-        <span class="text-danger text-sm"> <%= messages.error %></span>
+        <span class=" text-sm"> <%= messages.error %></span>
         <% } %>
-    <input
-    name="name" value="<%= messages.name %>"type="text" class="form-control" placeholder="enter your username" >
+    <div class="form-group">
+    <input name="name" value="<%= messages.name %>"type="text" class="form-control" placeholder="enter your username" >
+    </div>
+    <div class="form-group">
+        <input name="email" value="<%= messages.email %>" type="email" class="form-control" placeholder="enter your email" >
+    </div>
+    <div class="form-group">
+        <input name="password" value="<%= messages.password %>" id="password" type="password" class="form-control" placeholder="password" >
+    </div>
+    <div class="form-group">
+        <% if(messages.error1){ %>
+            <span class="text-danger text-sm"> <%= messages.error1 %></span>
+            <% } %>
+            <input name="confirmpassword" value="<%=messages.confirmpassword %>" type="password" class="form-control" placeholder="confirm password" >
+
+            
+    </div>
+ 
     <br>
-    <input 
-    name="email" value="<%= messages.email %>" type="email" class="form-control" placeholder="enter your email" >
-    <br>
-    <input
-     name="password" value="<%= messages.password %>" id="password" type="password" class="form-control" placeholder="password" >
-    <br>
-  <!--  <input
-    name="confirmpassword" value="<%=messages.confirmpassword %>" type="password" class="form-control" placeholder="confirm password" >
-    <% if(messages.error1){ %>
-        <span class="text-danger text-sm"> <%= messages.error1 %></span>
-        <% } %>
-    <br>-->
     <input class="btn btn-danger" class="form-control" id ="submit"type="submit" value="Register">
     <br>
     <br>
  
 </form>
+</div>
+</div>

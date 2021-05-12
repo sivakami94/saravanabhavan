@@ -1,13 +1,73 @@
 @import './variables';
+$fa-font-path:   "../font";
 
-
-body{
-  background:$primary;
+.loginsection1 {
+  width:100%;
+  position :fixed;
 }
-.container{
-  background-color:red;
+.loginsection2 {
+			height:auto;
+		  float:right;
+      padding-top:200px;
+     h1{
+       color:rgb(90, 59, 2);
+     }
+     .btn{
+       color:white;
+       background-color:rgb(230, 70, 7);
+       float :left;
+     }
+     a:hover{
+          color:red;
+     }   
 }
-.nav{
-   
-  flex-direction:row reverse;
+.registersection1{
+  width:100%;
+  position:fixed;
 }
+.registersection2{
+    padding-top: 10%;
+    padding-left: 20%;
+    padding-right:20%;
+    h1{
+      color:rgb(90, 59, 2);
+    }
+    span{
+      color:rgb(99, 29, 4);
+    }
+    .btn{
+      color:white;
+      background-color:rgb(230, 70, 7);
+      float :left;
+    } 
+}
+.header{
+ 
+   .navbar{
+     background-color: rgb(250, 138, 46);
+     border-radius: 20px;
+       .nav-link {
+        color:rgb(99, 29, 4);
+       }
+       .nav-link:hover{
+         color:yellow;
+       }
+       .nav-link:active{
+         color:yellowgreen;
+      }
+     .cart{
+        padding: 2px;     
+     }
+      }
+   }
+      
+      .section1{
+        width:20%;
+        height:auto;
+       float:left;
+      }
+      .section2{
+        width:70%;
+        height:auto;
+       float:left;
+      }
