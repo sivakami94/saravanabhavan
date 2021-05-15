@@ -44,7 +44,7 @@ app.use(passport.session())
 app.use(flash())
 //Assert
 app.use(express.static("public"))
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
 

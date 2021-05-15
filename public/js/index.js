@@ -1845,19 +1845,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-var addToCart = document.querySelectorAll(".add-to-cart");
-var cartCounter = document.getElementById("cartCounter");
+var minus = document.querySelectorAll("#minus");
+var add = document.querySelectorAll("#add");
+var cartCounter = document.querySelector("#cartCounter");
 
-function updateCart(saravanabhavan) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default().post("/update-cart", saravanabhavan).then(function (res) {
-    cartCounter.innerHTML = +res.data.totalQty;
+function Minus(menu) {
+  axios__WEBPACK_IMPORTED_MODULE_0___default().post("/minus-cart", menu).then(function (res) {
+    cartCounter.innerText = res.data.totalQty;
   });
 }
 
-addToCart.forEach(function (btn) {
+function Add(menu) {
+  axios__WEBPACK_IMPORTED_MODULE_0___default().post("/add-cart", menu).then(function (res) {
+    cartCounter.innerText = res.data.totalQty;
+  });
+}
+
+minus.forEach(function (btn) {
   btn.addEventListener("click", function (e) {
-    var saravanabhavan = JSON.parse(btn.dataset.saravanabhavan);
-    updateCart(saravanabhavan);
+    var menu = JSON.parse(btn.dataset.menu);
+    Minus(menu);
+  });
+});
+add.forEach(function (btn) {
+  btn.addEventListener("click", function (e) {
+    var menu = JSON.parse(btn.dataset.menu);
+    Add(menu);
   });
 });
 

@@ -4,8 +4,8 @@ function ordercontrollers(){
     return{
         store(req,res)
         {
-         const { phone,address}=req.body
-          if(!phone ||!address)
+         const { phone,location,address}=req.body
+          if(!phone ||!location||!address )
           {
               req.flash('error',"All fields are required")
               return res.redirect("/cart")

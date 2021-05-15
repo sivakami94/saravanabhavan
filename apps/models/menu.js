@@ -5,7 +5,8 @@ const menuSchema=new Schema({
      category:{type:String,required:true},
     name:{ type :String ,required:true},
     image:{type:String, required:true},
-    price:{ type :Number ,required:true}
+    price:{ type :Number ,required:true},
+    available:{type:Boolean,default:true}
      
     
 })
