@@ -71,3 +71,27 @@ $fa-font-path:   "../font";
         height:auto;
        float:left;
       }
+.home_nav{
+    a{
+      color:rgb(71, 47, 3);
+      background-color: rgb(250, 186, 68);
+    }
+    a:hover{
+      background-color:orangered;
+    }
+    a:active{
+      background-color:orangered;
+    }
+}
+
+.card{
+  background-color: rgb(247, 176, 46);
+  .btn{
+    background-color: rgb(243, 98, 13);
+    color:white;
+    border-color:white;
+  }
+}
+.jumbotron{
+  background-color:rgb(250, 186, 68);
+}

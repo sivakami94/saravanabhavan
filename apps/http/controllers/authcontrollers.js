@@ -4,7 +4,8 @@ const passport = require("passport")
 function authcontrollers()
    {
            const get_redirect=(req) =>{
-               return req.user.email =="saravarabhavan@gmail.com" ?"/admin/new" :"/menu"
+             return  req.user.email==="Saravarabhavan@gmail.com"?  "/admin/orders" :"/menu"
+               
            }
            return{
               login(req,res)
@@ -84,7 +85,8 @@ function authcontrollers()
                           name,
                           email,
                           password:hashedPassword,
-                          confirmpassword:hashedPassword
+                          confirmpassword:hashedPassword,
+                          
                        })
     
                     user.save().then((user) =>{

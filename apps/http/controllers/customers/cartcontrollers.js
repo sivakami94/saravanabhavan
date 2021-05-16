@@ -31,7 +31,7 @@ function cartcontrollers(){
                  qty:1
             }
              cart.totalQty=cart.totalQty+1;
-             cart.totalPrice=cart.totalPrice+req.body.price
+             cart.totalPrice=cart.totalPrice + req.body.price
       }
       else
       {
@@ -40,7 +40,7 @@ function cartcontrollers(){
           cart.totalPrice=cart.totalPrice +req.body.price
        }
          
-         return res.json({totalQty:req.session.cart.items.totalQty})
+         return res.json({totalQty:req.session.cart.totalQty})
      
        },
        
@@ -77,7 +77,7 @@ function cartcontrollers(){
           cart.totalPrice=cart.totalPrice -req.body.price
       }
           
-            return res.json({totalQty:req.session.cart.items.totalQty})
+            return res.json({totalQty:req.session.cart.totalQty})
      
        }
     }

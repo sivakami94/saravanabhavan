@@ -70,3 +70,27 @@
   height: auto;
   float: left;
 }
+
+.home_nav a {
+  color: #472f03;
+  background-color: #faba44;
+}
+.home_nav a:hover {
+  background-color: orangered;
+}
+.home_nav a:active {
+  background-color: orangered;
+}
+
+.card {
+  background-color: #f7b02e;
+}
+.card .btn {
+  background-color: #f3620d;
+  color: white;
+  border-color: white;
+}
+
+.jumbotron {
+  background-color: #faba44;
+}

@@ -40,7 +40,14 @@
                                      <a onclick ="document.getElementById('logout').submit()" class="nav-link" href="#">Logout</a>
                                  </form>
                                </li>
-                            <% } %>
+                            <% } else { %>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Register</a>
+                               </li>
+                               <li class="nav-item">
+                                    <a class="nav-link" href="#">Login</a>
+                              </li>
+                                <% } %>
                            <li class="nav-item ">
                                <a class="cart nav-link" href="/cart">
                                     <span id="cartCounter"><%= session.cart ? session.cart.totalQty :'' %> </span>
@@ -51,7 +58,8 @@
                     </div>
                 </nav>
             </div>
-      </div>
+      
+          </div>
     
 
    <%- body %>

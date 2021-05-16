@@ -1,38 +1,39 @@
 
 
 <div class="container pt-5">
-<h1>Add New Items</h1>
     <div class="col-md-6 col-lg-12 " >
-<form action="/admin/new" method="POST" class=" form-group ">
-    <div class="form-group">
+      <div class="jumbotron mt-5 pt-5">
+<form action="/admin/new" method="POST">
+  <h2>Add New Items</h2>
+    <div class="form-inline">
      <legend>Category</legend>
     <input name="category" type="text" class="form-control"  placeholder="Enter Item Category" >
     </div>
-    <div class="form-group">
+    <div class="form-inline">
         <legend>Item name</legend>
-        <input name="name" type="email" name class="form-control"  placeholder="Enter Item Name" >
+        <input name="name" type="text" name class="form-control"  placeholder="Enter Item Name" >
     </div>
-    
-<form action="/action_page.php">
-    <legend for="img">Item Image</legend>
-    <input name="image" type="file" id="img"  accept="image/*">
-  </form>
-    <div class="form-group">
-        <legend>Price</legend>
-        <input name="price" type="Number"class="form-control" placeholder="Enter Item Price" >
-    </div>
+    <div class="form-inline">
+      <legend>Item Image</legend>
+      <input name="image" type="text" name class="form-control"  placeholder="Enter Item Image" >
+  </div>
+  <div class="form-inline">
+    <legend>Item Price</legend>
+    <input name="price" type="number" name class="form-control"  placeholder="Enter Item Price" >
+  </div>
    
-    <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
-        <label class="form-check-label" for="flexSwitchCheckChecked"
-          >Item Available</label
-        >
-      </div>
+  
+    <div class="custom-control custom-switch">
+      <input name="available"type="checkbox" class="custom-control-input" id="check" >
+      <label class="custom-control-label" for="check">Item Available</label>
+    </div>
+
     <br>
-    <input class="btn btn-danger" class="form-control"type="submit" value="Add item">
+    <input class="submit btn btn-danger" class="form-control"type="submit" value="Add item">
     <br>
     <br>
- 
 </form>
+   
+</div>
 </div>
 </div>

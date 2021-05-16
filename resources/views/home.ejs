@@ -2,22 +2,124 @@
   
     <div class="container-fluid pt-5">
       <div class="row">
-        <div class="col-lg-2 ">
+        
+        <div class="col-lg-2 home_nav ">
               <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-               <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Dosa </a>
-               <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Idly</a>
-               <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Parotta</a>
-               <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Briyani</a>
+               <a class="nav-link " id="v-pills-dosa-tab" data-toggle="pill" href="#v-pills-dosa" role="tab" aria-controls="v-pills-dosa" aria-selected="true">Dosa </a>
+               <a class="nav-link" id="v-pills-idly-tab" data-toggle="pill" href="#v-pills-idly" role="tab" aria-controls="v-pills-idly" aria-selected="false">Idly</a>
+               <a class="nav-link" id="v-pills-chappathi-tab" data-toggle="pill" href="#v-pills-chappathi" role="tab" aria-controls="v-pills-parotta" aria-selected="false">Chappathi</a>
+               <a class="nav-link" id="v-pills-kolukattai-tab" data-toggle="pill" href="#v-pills-kolukattai" role="tab" aria-controls="v-pills-briyani" aria-selected="false">Kolukattai</a>
+               <a class="nav-link" id="v-pills-parotta-tab" data-toggle="pill" href="#v-pills-parotta" role="tab" aria-controls="v-pills-parotta" aria-selected="true">Parotta</a>
+               <a class="nav-link" id="v-pills-rice-tab" data-toggle="pill" href="#v-pills-rice" role="tab" aria-controls="v-pills-rice" aria-selected="false">Rice</a>
+               <a class="nav-link" id="v-pills-noodles-tab" data-toggle="pill" href="#v-pills-noodles" role="tab" aria-controls="v-pills-noodles" aria-selected="false">Noodles</a>
+               <a class="nav-link" id="v-pills-briyani-tab" data-toggle="pill" href="#v-pills-briyani" role="tab" aria-controls="v-pills-briyani" aria-selected="false">Briyani</a>
+               <a class="nav-link" id="v-pills-manjurian-tab" data-toggle="pill" href="#v-pills-manjurian" role="tab" aria-controls="v-pills-manjurian" aria-selected="true">Manjurian</a>
+               <a class="nav-link" id="v-pills-chilly-tab" data-toggle="pill" href="#v-pills-chilly" role="tab" aria-controls="v-pills-chilly" aria-selected="false">Chilly</a>
+               <a class="nav-link" id="v-pills-masala-tab" data-toggle="pill" href="#v-pills-masala" role="tab" aria-controls="v-pills-masala" aria-selected="false">Masala</a>
+               <a class="nav-link" id="v-pills-drinks-tab" data-toggle="pill" href="#v-pills-drinks" role="tab" aria-controls="v-pills-drinks" aria-selected="false">Drinks</a>
+               <a class="nav-link" id="v-pills-icecream-tab" data-toggle="pill" href="#v-pills-icecream" role="tab" aria-controls="v-pills-icecream" aria-selected="false">Ice Cream</a>
+              </div>
             </div>
-            </div>
-<div class="col-md-6 float-left">
+
+<div class="col-md-7 float-left">
 <div class="tab-content" id="v-pills-tabContent">
-  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+  <div class="tab-pane fade show active" id="v-pills-dosa" role="tabpanel" aria-labelledby="v-pills-dosa-tab">
     <div class="row">
-      
       <% menus.forEach(function(menu){ %>
         <% if(menu.category=="Dosa") { %>
-      <div class="col-sm-6 col-lg-6">
+      <div class="col-sm-6 col-lg-4">
+        <div class="card p-3 m-sm-3" style="width: 250px;">
+          <h5><%= menu.name %></h5>
+          <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
+          <div class="card-body">
+        
+              <div class="btn-group float-right" role="group" aria-label="Basic example">
+                <button data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn ">-</button>
+                <button data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn ">+</button>
+              </div> 
+              <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text"><%= menu.price %></h4>
+
+          </div>
+        </div>
+      </div>
+      <% } %>
+      <% }) %>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="v-pills-idly" role="tabpanel" aria-labelledby="v-pills-idly-tab">
+    <div class="row">
+      <% menus.forEach(function(menu){ %>
+        <% if(menu.category=="Idly") { %>
+          <div class="col-sm-6 col-lg-4">
+            <div class="card p-3 m-sm-3" style="width: 250px;">
+              <h5><%= menu.name %></h5>
+              <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
+              <div class="card-body">
+            
+                  <div class="btn-group float-right" role="group" aria-label="Basic example">
+                    <button data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger">-</button>
+                    <button data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-danger">+</button>
+                  </div> 
+                  <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text"><%= menu.price %></h4>
+    
+              </div>
+            </div>
+          </div>
+      <% } %>
+      <% }) %>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="v-pills-chappathi" role="tabpanel" aria-labelledby="v-pills-chappathi-tab">
+    <div class="row">
+      <% menus.forEach(function(menu){ %>
+        <% if(menu.category=="Chappathi"){ %>
+          <div class="col-sm-6 col-lg-4">
+            <div class="card p-3 m-sm-3" style="width: 250px;">
+              <h5><%= menu.name %></h5>
+              <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
+              <div class="card-body">
+            
+                  <div class="btn-group float-right" role="group" aria-label="Basic example">
+                    <button data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger">-</button>
+                    <button data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-danger">+</button>
+                  </div> 
+                  <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text"><%= menu.price %></h4>
+    
+              </div>
+            </div>
+          </div>
+      <% } %>
+      <% }) %>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="v-pills-kolukattai" role="tabpanel" aria-labelledby="v-pills-kolukattai-tab">
+    <div class="row">
+      <% menus.forEach(function(menu){ %>
+        <% if(menu.category=="Kolukattai") { %>
+          <div class="col-sm-6 col-lg-4">
+            <div class="card p-3 m-sm-3" style="width: 250px;">
+              <h5><%= menu.name %></h5>
+              <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
+              <div class="card-body">
+            
+                  <div class="btn-group float-right" role="group" aria-label="Basic example">
+                    <button data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger">-</button>
+                    <button data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-danger">+</button>
+                  </div> 
+                  <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text"><%= menu.price %></h4>
+    
+              </div>
+            </div>
+          </div>
+      <% } %>
+      <% }) %>
+    </div>
+  </div>
+  <div class="tab-pane fade show active" id="v-pills-parotta" role="tabpanel" aria-labelledby="v-pills-parotta-tab">
+    <div class="row">
+      <% menus.forEach(function(menu){ %>
+        <% if(menu.category=="Parotta") { %>
+      <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>
           <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
@@ -36,16 +138,21 @@
       <% }) %>
     </div>
   </div>
-  <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+  <div class="tab-pane fade show active" id="v-pills-rice" role="tabpanel" aria-labelledby="v-pills-rice-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Idly") { %>
-      <div class="col-sm-6 col-lg-6">
+        <% if(menu.category=="Rice") { %>
+      <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>
           <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
           <div class="card-body">
-            <h4 data-menu="<%= JSON.stringify(menu) %>"class="add-to-cart card-text"><%= menu.price %><button class="btn btn-outline-danger float-right" type="submit">+Add</button></h4>
+        
+              <div class="btn-group float-right" role="group" aria-label="Basic example">
+                <button data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger">-</button>
+                <button data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-danger">+</button>
+              </div> 
+              <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text"><%= menu.price %></h4>
 
           </div>
         </div>
@@ -54,16 +161,21 @@
       <% }) %>
     </div>
   </div>
-  <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+  <div class="tab-pane fade show active" id="v-pills-noodles" role="tabpanel" aria-labelledby="v-pills-noodles-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Parotta"){ %>
-      <div class="col-sm-4 col-md-3">
+        <% if(menu.category=="Noodles") { %>
+      <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>
           <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
           <div class="card-body">
-            <h4 data-menu="<%= JSON.stringify(menu) %>"class="add-to-cart card-text"><%= menu.price %><button class="btn btn-outline-danger float-right" type="submit">+Add</button></h4>
+        
+              <div class="btn-group float-right" role="group" aria-label="Basic example">
+                <button data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger">-</button>
+                <button data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-danger">+</button>
+              </div> 
+              <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text"><%= menu.price %></h4>
 
           </div>
         </div>
@@ -72,16 +184,21 @@
       <% }) %>
     </div>
   </div>
-  <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+  <div class="tab-pane fade show active" id="v-pills-briyani" role="tabpanel" aria-labelledby="v-pills-briyani-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
         <% if(menu.category=="Briyani") { %>
-      <div class="col-sm-4 col-md-3">
+      <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>
           <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
           <div class="card-body">
-            <h4 data-menu="<%= JSON.stringify(menu) %>"class="add-to-cart card-text"><%= menu.price %><button class="btn btn-outline-danger float-right" type="submit">+Add</button></h4>
+        
+              <div class="btn-group float-right" role="group" aria-label="Basic example">
+                <button data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger">-</button>
+                <button data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-danger">+</button>
+              </div> 
+              <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text"><%= menu.price %></h4>
 
           </div>
         </div>
@@ -90,12 +207,126 @@
       <% }) %>
     </div>
   </div>
-</div>
-</div>
+  <div class="tab-pane fade show active" id="v-pills-manjurian" role="tabpanel" aria-labelledby="v-pills-manjurian-tab">
+    <div class="row">
+      <% menus.forEach(function(menu){ %>
+        <% if(menu.category=="Manjurian") { %>
+      <div class="col-sm-6 col-lg-4">
+        <div class="card p-3 m-sm-3" style="width: 250px;">
+          <h5><%= menu.name %></h5>
+          <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
+          <div class="card-body">
+        
+              <div class="btn-group float-right" role="group" aria-label="Basic example">
+                <button data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger">-</button>
+                <button data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-danger">+</button>
+              </div> 
+              <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text"><%= menu.price %></h4>
 
+          </div>
+        </div>
+      </div>
+      <% } %>
+      <% }) %>
+    </div>
+  </div>
+  <div class="tab-pane fade show active" id="v-pills-chilly" role="tabpanel" aria-labelledby="v-pills-chilly-tab">
+    <div class="row">
+      <% menus.forEach(function(menu){ %>
+        <% if(menu.category=="Chilly") { %>
+      <div class="col-sm-6 col-lg-4">
+        <div class="card p-3 m-sm-3" style="width: 250px;">
+          <h5><%= menu.name %></h5>
+          <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
+          <div class="card-body">
+        
+              <div class="btn-group float-right" role="group" aria-label="Basic example">
+                <button data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger">-</button>
+                <button data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-danger">+</button>
+              </div> 
+              <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text"><%= menu.price %></h4>
+
+          </div>
+        </div>
+      </div>
+      <% } %>
+      <% }) %>
+    </div>
+  </div>
+  <div class="tab-pane fade show active" id="v-pills-masala" role="tabpanel" aria-labelledby="v-pills-masala-tab">
+    <div class="row">
+      <% menus.forEach(function(menu){ %>
+        <% if(menu.category=="Masala") { %>
+      <div class="col-sm-6 col-lg-4">
+        <div class="card p-3 m-sm-3" style="width: 250px;">
+          <h5><%= menu.name %></h5>
+          <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
+          <div class="card-body">
+        
+              <div class="btn-group float-right" role="group" aria-label="Basic example">
+                <button data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger">-</button>
+                <button data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-danger">+</button>
+              </div> 
+              <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text"><%= menu.price %></h4>
+
+          </div>
+        </div>
+      </div>
+      <% } %>
+      <% }) %>
+    </div>
+  </div>
+  <div class="tab-pane fade show active" id="v-pills-drinks" role="tabpanel" aria-labelledby="v-pills-drinks-tab">
+    <div class="row">
+      <% menus.forEach(function(menu){ %>
+        <% if(menu.category=="Drinks") { %>
+      <div class="col-sm-6 col-lg-4">
+        <div class="card p-3 m-sm-3" style="width: 250px;">
+          <h5><%= menu.name %></h5>
+          <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
+          <div class="card-body">
+        
+              <div class="btn-group float-right" role="group" aria-label="Basic example">
+                <button data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger">-</button>
+                <button data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-danger">+</button>
+              </div> 
+              <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text"><%= menu.price %></h4>
+
+          </div>
+        </div>
+      </div>
+      <% } %>
+      <% }) %>
+    </div>
+  </div>
+  <div class="tab-pane fade show active" id="v-pills-icecream" role="tabpanel" aria-labelledby="v-pills-icecream-tab">
+    <div class="row">
+      <% menus.forEach(function(menu){ %>
+        <% if(menu.category=="Ice Cream") { %>
+      <div class="col-sm-6 col-lg-4">
+        <div class="card p-3 m-sm-3" style="width: 250px;">
+          <h5><%= menu.name %></h5>
+          <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
+          <div class="card-body">
+        
+              <div class="btn-group float-right" role="group" aria-label="Basic example">
+                <button data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger">-</button>
+                <button data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-danger">+</button>
+              </div> 
+              <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text"><%= menu.price %></h4>
+
+          </div>
+        </div>
+      </div>
+      <% } %>
+      <% }) %>
+    </div>
+  </div>
+  </div>
+</div>
   <div class="col-md-3 float-right pt-5 ">
     <% if(session.cart) { %>
-      <div class="jumbotron ">
+      <div class="jumbotron m-2 ">
             <% for(let menu of Object.values(session.cart.items)) { %>
               <% if(menu.qty>0){ %>
                <div class="row">
@@ -119,6 +350,9 @@
             </div>
           <% } %>
         </div>
-        </div>
-  </div>
 
+
+</div>
+
+</div>
+</div>

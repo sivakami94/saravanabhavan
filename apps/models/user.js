@@ -6,7 +6,7 @@ const userSchema=new Schema({
     email:{ type:String, required:true,unique:true},
     password:{type:String, required:true},
     confirmpassword:{type:String, required:true},
-    role:{type:String}
+    isuser:{type:Boolean}
    
 },{timestamps: true})
 

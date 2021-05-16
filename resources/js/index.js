@@ -1,20 +1,24 @@
 import axios from 'axios'
+import menu from '../../apps/models/menu';
 
 let minus=document.querySelectorAll("#minus");
 let add=document.querySelectorAll("#add");
 let cartCounter=document.querySelector("#cartCounter")
 
-function Minus(menu)
+
+ function Minus(menu)
 {  
-  axios.post("/minus-cart",menu) .then((res) =>{    
-       cartCounter.innerText =res.data.totalQty;          
-  })    
+  axios.post("/minus-cart",menu).then((res)=>{
+    cartCounter.innerText= res.data.totalQty
+   })            
 }
-function Add(menu)
+ function Add(menu)
 {  
-    axios.post("/add-cart",menu) .then((res) =>{
-        cartCounter.innerText =res.data.totalQty;      
-  })
+     axios.post("/add-cart",menu).then((res)=>{
+         cartCounter.innerText= res.data.totalQty
+     })
+       
+     
 }
 minus.forEach((btn)=> {
        btn.addEventListener("click",(e) =>{
