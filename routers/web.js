@@ -1,4 +1,3 @@
-
 const homecontrollers=require("../apps/http/controllers/homecontrollers")
 const authcontrollers=require("../apps/http/controllers/authcontrollers")
 const cartcontrollers=require("../apps/http/controllers/customers/cartcontrollers")
@@ -14,11 +13,7 @@ const { request } = require("express")
 //models
 const Menu = require('../apps/models/menu')
 
-//maps
-const mbxGeocoding=require("@mapbox/mapbox-sdk/services/geocoding")
-const Mapbox_token=process.env.mapbox_token;
-const geocoder= mbxGeocoding({accessToken:Mapbox_token})
-//
+
 const crypto=require("crypto");
 const Razorpay=require("razorpay")
 const { session } = require("passport")

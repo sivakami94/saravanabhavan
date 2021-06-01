@@ -17,7 +17,6 @@
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.14.0",
-    "@mapbox/mapbox-sdk": "^0.12.1",
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
     "babel-plugin-import": "^1.13.3",
