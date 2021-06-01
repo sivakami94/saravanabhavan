@@ -1,3 +1,9 @@
+body {
+  background-color: #f7d18c;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-style: italic;
+}
+
 .loginsection1 {
   width: 100%;
   position: fixed;
@@ -18,6 +24,11 @@
 }
 .loginsection2 a:hover {
   color: red;
+}
+.loginsection2 a:disabled {
+  color: white;
+  background-color: #615d5c;
+  float: left;
 }
 
 .registersection1 {
@@ -74,16 +85,26 @@
 .home_nav a {
   color: #472f03;
   background-color: #faba44;
+  border-radius: 20px;
+  border-left: 1px solid orangered;
+  border-right: 1px solid orangered;
 }
 .home_nav a:hover {
   background-color: orangered;
 }
 .home_nav a:active {
-  background-color: orangered;
+  background-color: #7c2506;
+}
+.home_nav a:visited {
+  background-color: #7c2506;
 }
 
 .card {
   background-color: #f7b02e;
+}
+.card img {
+  border-color: #f3620d;
+  border-radius: 10px;
 }
 .card .btn {
   background-color: #f3620d;
@@ -91,6 +112,30 @@
   border-color: white;
 }
 
-.jumbotron {
+.menu-cart {
+  padding-top: 15px;
+  font-style: italic;
+  font-size: larger;
+}
+.menu-cart img {
+  padding: 15px;
+}
+
+.payment {
+  background-color: #faba44;
+  border-radius: 30px;
+  margin: 350px;
+  margin-top: 50px;
+  padding-left: 100px;
+  padding-right: 200px;
+}
+
+.btn {
+  background-color: #e64607;
+  margin: 10px;
+  margin-right: 0px;
+}
+
+.thead {
   background-color: #faba44;
 }

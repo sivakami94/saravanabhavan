@@ -1,0 +1,88 @@
+<div class="container pt-5">
+    <div class=" payment jumbotron pt-5">
+      
+      <% if(session.cart) { %>
+        <legend for="">Amount:</legend>
+       
+            <!-- <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">₹</div>
+              </div> -->
+              <input type="number" class="form-control" id="amount" readonly value=<%=session.cart.totalPrice %>>
+            <!-- </div> -->
+        
+        <button id="order"class="btn btn-danger " type="submit">Pay</button>
+  
+<script type="text/javascript">
+        let config = {
+          headers: {
+        //  header1: value,
+        'Content-Type': 'application/json'
+         }
+        }
+      document.getElementById("order").addEventListener('click', pay, false);
+      async function pay(e){
+       
+          var amt=document.getElementById("amount").value*100;
+    
+        var url="/api/payment/order"
+        var params={
+            amount  :amt,
+            currency:"INR",
+            receipt:"Payment",
+            payment_capture:"1"
+        
+        };
+    
+    var data=await axios.post(url,{params:params},config)
+    order_id=data.data.sub.id;
+       
+        var option={
+            "key"        :"<%= key %>",
+            "currency"   :"INR",
+            "name"       :"payment",
+            "description":"Bill Transaction",
+            "order_id"   :order_id,
+             "handler"    ://function(req,response){
+            //     document.getElementById("order-pay-id").value=response.razorpay_payment_id;
+            //     document.getElementById("order-id").value=response.razorpay_order_id;
+            //     document.getElementById("order-sig").value=response.razorpay_signature;
+         
+            async function (response) {
+                    if(response.razorpay_payment_id && response.razorpay_order_id && response.razorpay_signature)
+                    {
+                    
+                        var params = {
+                            amount: amt,
+                            payment_id: response.razorpay_payment_id,
+                            order_id: response.razorpay_order_id,
+                            signature: response.razorpay_signature,
+                           
+                        }
+
+                        var data = await axios.post('/api/payment/verify', {params: params})
+                     
+                    }
+                  
+            
+                },
+            
+            "theme" :{
+                "color":"#0EB9F2"
+            }
+        };
+        var rzp1=new Razorpay(option);
+        rzp1.open();
+        e.preventDefault();
+      
+    }
+  
+</script>
+<br>
+
+ <%  delete session.cart %>           
+<% } %>
+</div>
+</div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js" ></script>

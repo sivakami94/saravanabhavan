@@ -3,10 +3,7 @@ const bcrypt=require("bcrypt")
 const passport = require("passport")
 function authcontrollers()
    {
-           const get_redirect=(req) =>{
-             return  req.user.email==="Saravarabhavan@gmail.com"?  "/admin/orders" :"/menu"
-               
-           }
+          
            return{
               login(req,res)
                 {
@@ -14,13 +11,19 @@ function authcontrollers()
                 },
                postLogin(req,res,next)
                 {
-                   const {email,password}=req.body
+                   const {email,password,role}=req.body
                    //validate request
-                    if(!email || !password )
+                    if(!email || !password||!role )
                       {
                         req.flash('error',"All fields are required")
                          return res.redirect("/")
                       }
+                      if(role==="Admin" && password!="saravanabhavan123")
+                      {
+                        req.flash('error',"you are not a admin")
+                        return res.redirect("/")
+                      }
+                     
                     passport.authenticate('local',(err,user,info) =>{
                        if(err)
                         {
@@ -29,6 +32,7 @@ function authcontrollers()
                         }
                       if(!user)
                       {
+                        
                           req.flash("error", info.message)
                           return res.redirect("/")
                       }
@@ -38,7 +42,7 @@ function authcontrollers()
                              req.flash('error',info.message)
                             return next(err)
                         }
-                    return res.redirect(get_redirect(req))
+                    return res.redirect("/menu")
                    })
                  })(req,res,next)
                 },
@@ -48,12 +52,13 @@ function authcontrollers()
                     },
                 async postregister(req,res)
                     {
-                      const {name,email,password,confirmpassword}=req.body
-           
+                      const {role,name,email,password,confirmpassword}=req.body
+                        
                        //validate request
-                      if(!name || !email || !password || !confirmpassword )
+                      if(!role ||!name || !email || !password || !confirmpassword )
                       {
                            req.flash('error',"All fields are required")
+                           req.flash('role',role)
                            req.flash('name',name)
                            req.flash('email',email)
                            req.flash('password',password)
@@ -65,6 +70,7 @@ function authcontrollers()
                         if(result)
                                {
                                     req.flash('error',"Email already exists")
+                                    req.flash('role',role)
                                     req.flash('name',name)
                                     req.flash('email',email)
                                     req.flash('password',password)
@@ -78,19 +84,33 @@ function authcontrollers()
                             req.flash('error1',"password not match")
                             return res.redirect("/register")
                           }
+                     if(role==="Admin" && password!="saravanabhavan123")
+                     {
+                      
+                            req.flash('error',"you are not a admin")
+                            return res.redirect("/register")
+                     }
+                     else{
+                       console.log("admin")
+                     }
                    //Hash password
                       const hashedPassword =await bcrypt.hash(password,10)
                         //create a user
                        const user=new User({
+                          role,
                           name,
                           email,
                           password:hashedPassword,
                           confirmpassword:hashedPassword,
                           
                        })
-    
-                    user.save().then((user) =>{
-                      return res.redirect('/menu')
+                       console.log(user)
+                   /user.save().then((user) =>{
+                      passport.authenticate("local")
+                      (req,res,function(){
+                          res.redirect("/menu");
+                      })
+                     
                     }).catch(err =>{
                          req.flash('error','Something went wrong')
                         return res.redirect('/register')

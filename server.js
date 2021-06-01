@@ -3,13 +3,24 @@ const express = require("express");
 const app =express();
 const path = require("path");
 const expressLayout=require("express-ejs-layouts")
-//const moment=require("moment")
+const MethodOverride=require("method-override")
 
 const mongoose=require("mongoose")
 const session=require("express-session")
 const flash=require("express-flash")
 const MongoDbStore=require("connect-mongo")(session)
 const passport=require("passport")
+
+//payments
+const cors=require("cors");
+const crypto=require("crypto");
+const Razorpay=require("razorpay")
+
+
+//Middlewares
+app.use(cors());
+
+
 
 //database connection
 const url="mongodb://localhost:27017/saravanabhavan";
@@ -44,7 +55,8 @@ app.use(passport.session())
 app.use(flash())
 //Assert
 app.use(express.static("public"))
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: false}))
+app.use(MethodOverride('_method'))
 app.use(express.json())
 
 
@@ -58,6 +70,8 @@ app.use(expressLayout)
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/resources/views'))
 require("./routers/web")(app)
+
+
 
 app.listen(3000, () => {
     console.log("server stated");

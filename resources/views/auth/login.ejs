@@ -12,7 +12,12 @@
               <% if(messages.error){ %>
                      <span class="text-danger text-sm"> <%= messages.error %></span>
               <% } %> 
-          
+              <div class="form-group">
+              <input type="radio" id="admin" name="role" value="Admin">
+                       <label for="male">Admin</label><br>
+               <input type="radio" id="customer" name="role" value="Customer">
+                       <label for="female">Customer</label><br>
+                </div>
                 <div class="form-group">
                      <input name="email"  type="email" class="form-control" placeholder="enter your email" >
                 </div>

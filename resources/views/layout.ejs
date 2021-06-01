@@ -9,11 +9,19 @@
     <!-- Bootstrap CSS -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
      <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/css/index.css">
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="/css/index.css">
     <title>Hotel Shree Saravanabhavan</title>
+     
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
+  <!--Map-->   
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
 
 </head>
-
+<% if(user){ %>
   <div class="header">
       <div class="container-fluid container-sm  ">
           <nav class=" navbar navbar-expand-sm navbar-light fixed-top">
@@ -21,7 +29,9 @@
                   <a class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                   </a>
+                
                  <div class="collapse navbar-collapse" id="navbarText">
+                  <%if(user.role=="Customer"){ %>
                       <ul class="navbar-nav mr-auto ">
                           <li class="nav-item ">
                               <a class="nav-link " href="/menu">Menu</a>
@@ -32,22 +42,24 @@
                          <li class="nav-item">
                               <a class="nav-link" href="#">Offers</a>
                         </li>
+                       
+                    </li>
                       </ul>
                        <ul class="navbar-nav mr-0">
-                            <% if(user) { %>
+                           <% if(user){ %>
                                <li class="nav-item">
                                   <form id ="logout" action="/logout" method="POST">
                                      <a onclick ="document.getElementById('logout').submit()" class="nav-link" href="#">Logout</a>
                                  </form>
                                </li>
-                            <% } else { %>
+                            <% } else{ %>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Register</a>
+                                    <a class="nav-link" href="/register">Register</a>
                                </li>
                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Login</a>
+                                    <a class="nav-link" href="/">Login</a>
                               </li>
-                                <% } %>
+                               <% } %>
                            <li class="nav-item ">
                                <a class="cart nav-link" href="/cart">
                                     <span id="cartCounter"><%= session.cart ? session.cart.totalQty :'' %> </span>
@@ -56,6 +68,42 @@
                            </li>
                          </ul>
                     </div>
+                    <% } %>
+                    <%if(user.role=="Admin"){ %>
+                      <ul class="navbar-nav mr-auto ">
+                          <li class="nav-item ">
+                              <a class="nav-link " href="/menu">Menu</a>
+                         </li>
+                         <li class="nav-item ">
+                          <a class="nav-link " href="/admin/orders">Orders</a>
+                         </li>
+                         <li class="nav-item ">
+                          <a class="nav-link " href="/admin/new">Add Item</a>
+                        </li>
+                        <li class="nav-item ">
+                          <a class="nav-link " href="/admin/show">Item List</a>
+                        </li>
+                      </ul>
+                       <ul class="navbar-nav mr-0">
+                           <% if(user){ %>
+                               <li class="nav-item">
+                                  <form id ="logout" action="/logout" method="POST">
+                                     <a onclick ="document.getElementById('logout').submit()" class="nav-link" href="#">Logout</a>
+                                 </form>
+                               </li>
+                            <% } else{ %>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/register">Register</a>
+                               </li>
+                               <li class="nav-item">
+                                    <a class="nav-link" href="/">Login</a>
+                              </li>
+                               <% } %>
+                           
+                         </ul>
+                    </div>
+                    <% } %>
+                    <% } %>
                 </nav>
             </div>
       

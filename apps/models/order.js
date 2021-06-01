@@ -7,9 +7,14 @@ const orderSchema=new Schema({
               ref: 'User',
               required:true
               },
-    items:{type: Object,required : true},
-    phone:{type:String,required : true},
-    address:{type:String,required : true},
+    items:{type:Object,required : true},
+    price:{type:Number,required:true},
+    phone:{type:Number,required : true},
+    location:{type:String,required : true},
+    door:{type:String,required : true},
+    line1:{type:String,required : true},
+    line2:{type:String},
+    landmark:{type:String},
     paymentType:{type:String,default:'COD'},
     status:{type:String, default: 'order_placed'},
 },{ timestamps:true })

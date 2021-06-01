@@ -5,31 +5,31 @@
       <div class="jumbotron mt-5 pt-5">
 <form action="/admin/new" method="POST">
   <h2>Add New Items</h2>
-    <div class="form-inline">
+    <div class="form-group">
      <legend>Category</legend>
     <input name="category" type="text" class="form-control"  placeholder="Enter Item Category" >
     </div>
-    <div class="form-inline">
+    <div class="form-group">
         <legend>Item name</legend>
         <input name="name" type="text" name class="form-control"  placeholder="Enter Item Name" >
     </div>
-    <div class="form-inline">
+    <div class="form-group">
       <legend>Item Image</legend>
       <input name="image" type="text" name class="form-control"  placeholder="Enter Item Image" >
   </div>
-  <div class="form-inline">
+  <div class="form-group">
     <legend>Item Price</legend>
     <input name="price" type="number" name class="form-control"  placeholder="Enter Item Price" >
   </div>
    
   
     <div class="custom-control custom-switch">
-      <input name="available"type="checkbox" class="custom-control-input" id="check" >
+      <input  name="available"type="checkbox" class="custom-control-input" id="check"  >
       <label class="custom-control-label" for="check">Item Available</label>
     </div>
 
     <br>
-    <input class="submit btn btn-danger" class="form-control"type="submit" value="Add item">
+    <input id="submit"class=" btn btn-danger" class="form-control"type="submit" value="Add item">
     <br>
     <br>
 </form>

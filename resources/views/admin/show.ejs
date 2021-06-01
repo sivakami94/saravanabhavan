@@ -1,0 +1,54 @@
+
+
+<div class="container mx-auto">
+    <h1>All Orders</h1>
+    
+   
+<table class="table">
+    <thead>
+      <tr>
+      
+        <th scope="col">Image Url</th>
+        <th scope="col">Item Id</th>
+        <th scope="col">Item Name</th>
+        <th scope="col">Item Price</th>
+        <th scope="col">Item Available</th>
+      </tr>
+    </thead>
+    <tbody id="orderTableBody">
+      
+     <% shows.forEach(function(show) { %>
+               <tr>
+                  
+                <td>
+                    <%= show.image %>
+               </td>
+                <td>
+               <p> <%= show._id %></p>
+                </td>
+         <td>
+             <%= show.name  %>
+         </td>
+        
+         <td>
+            <%= show.price %>
+        </td>
+        <td>
+             <%= show.available %>
+        </td>
+        </tr>
+      
+     
+       <td>
+           <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">Edit</a>
+       </td>
+       <td>
+        <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-danger">Remove</button>
+        </form>
+    </td>
+    
+       <% }) %>
+    </tbody>
+  </table>
+</div>

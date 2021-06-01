@@ -1,6 +1,10 @@
 @import './variables';
 $fa-font-path:   "../font";
-
+body{
+  background-color: rgb(247, 209, 140);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-style: italic;
+}
 .loginsection1 {
   width:100%;
   position :fixed;
@@ -19,7 +23,12 @@ $fa-font-path:   "../font";
      }
      a:hover{
           color:red;
-     }   
+     }  
+     a:disabled{
+      color:white;
+      background-color:rgb(97, 93, 92);
+      float :left;
+     } 
 }
 .registersection1{
   width:100%;
@@ -56,7 +65,8 @@ $fa-font-path:   "../font";
          color:yellowgreen;
       }
      .cart{
-        padding: 2px;     
+        padding: 2px;   
+          
      }
       }
    }
@@ -75,23 +85,59 @@ $fa-font-path:   "../font";
     a{
       color:rgb(71, 47, 3);
       background-color: rgb(250, 186, 68);
+      border-radius: 20px;
+      border-left: 1px solid orangered;
+      border-right: 1px solid orangered;
+    
     }
     a:hover{
       background-color:orangered;
     }
     a:active{
-      background-color:orangered;
+      background-color:rgb(124, 37, 6);
     }
+    a:visited{
+      background-color:rgb(124, 37, 6);
+    }
+  
 }
 
 .card{
   background-color: rgb(247, 176, 46);
+   img{
+      border-color:rgb(243, 98, 13) ;
+      border-radius: 10px;
+   }
   .btn{
     background-color: rgb(243, 98, 13);
     color:white;
     border-color:white;
   }
+
 }
-.jumbotron{
+.menu-cart{
+  padding-top: 15px;
+  font-style: italic;
+  font-size: larger;
+  img{
+    padding: 15px;
+  }
+}
+
+.payment{
   background-color:rgb(250, 186, 68);
+ border-radius: 30px;
+ 
+  margin: 350px;
+  margin-top: 50px;
+  padding-left: 100px;
+  padding-right: 200px;
+}
+.btn{
+  background-color: rgb(230, 70, 7);
+  margin:10px;
+  margin-right: 0px;
+}
+.thead{
+   background-color:rgb(250, 186, 68);
 }

@@ -1,61 +1,60 @@
 
 
-<div class="container mx-auto">
-    <h1>All Orders</h1>
-    
-   
-<table class="table">
-    <thead>
+<div class="container pt-5 mx-auto">
+  <% if(orders.length) { %>
+  
+      <h1>All Orders</h1>
+<table class="table ">
+    <thead class="thead">
       <tr>
         <th scope="col">Customer Id</th>
+        <th scope="col">Items</th>
         <th scope="col">Phone Number</th>
         <th scope="col">Address</th>
-        <th scope="col">Status</th>
-        <th scope="col">Placed At</th>
+        <th scope="col">Time</th>
       </tr>
     </thead>
-    <tbody id="orderTableBody">
-     <% orders.forEach(function(order) { %>
-      
-               <tr>
-               <td>
-               <p> <%= order._id %></p>
- 
-               
-              
-              
-              </td>
-         <td>
-             <%= order.customerId.name  %>
-         </td>
-         <td>
-              <%= order.address %>
-         </td>
-         <td>
-        <form action ="/admin/order/status" method="POST"class=" form-group  m-3 p-4 bg-light ">
-              <input  type="hidden" name="orderId"  class="form-control" value="<%= order._id %>" >
-        <select name="status" onchange="this.form.submit()">
-         <option value="order_placed">
-          <%= order.status === 'order_placed'? 'selected' : '' %> placed </option>
-         <option value="Confirmed">
-         <%= order.status=== 'Confirmed'? 'selected' : '' %> Confirmed </option>
-         <option value="Prepared">
-         <%= order.status=== 'Prepared'? 'selected' :'' %> Prepared</option>
-         <option value="Delivered">
-         <%= order.status=== 'Delivered'? 'selected' :'' %> Delivered</option>
-         <option value="Completed">
-        <%= order.status=== 'Completed'? 'selected' :''%>Completed</option>
-         </select>
-        </input>
+    <tbody>
+   <%   function render(items) { %>
+    <%   let parsedItems = Object.values(items) %>
+    <%   parsedItems.forEach(function(menuItem) { %>
+           <% if(menuItem.qty){ %>
+                <p><b><%= menuItem.item.name %></b> - <%= menuItem.qty %> pcs </p>
+
+            <% } %>
+      <%  }) %>
+   <%   } %>
      
-         </form>
-        </td>
-        <td>
-             <%= moment(order.createdAt).format("hh:mm A") %>
-        </td>
-        </tr>
-      
-     <% }) %>
+     
+            <% orders.forEach((order)=> { %>
+              <tr>
+                 <td>
+                      <a href="/menu"><%= order._id %></a>
+                </td>
+                <td>
+                  <%= render(order.items) %>
+            </td>
+                 <td>
+                      <%= order.phone %>
+                </td>
+                <td>
+                     <p> <%= order.door %></p>
+                     <p> <%= order.line1 %></p>
+                     <p> <%= order.line2 %></p>
+                     <p> <%= order.landmark %></p>
+                     <p> <%= order.location %></p>
+
+               </td>
+                <td>
+                      <%=moment(order.createdAt).format("hh:mm A") %>
+               </td>
+             </tr>
+            <%  }) %>
+             <% } else{ %>
+              <%  console.log(orders) %>
+                    <h1 class="text-center p-5">No Orders Found </h1>   
+             <% } %>
+    
     </tbody>
   </table>
 </div>
