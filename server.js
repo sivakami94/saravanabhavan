@@ -23,7 +23,8 @@ app.use(cors());
 
 
 //database connection
-const url="mongodb://localhost:27017/saravanabhavan";
+//"mongodb://localhost:27017/saravanabhavan"||
+const url="mongodb://localhost:27017/saravanabhavan"||process.env.db_url;
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true,'useFindAndModify': false,'useCreateIndex': true});
 const connection = mongoose.connection;
 connection.once('open',()=> {
@@ -73,6 +74,6 @@ require("./routers/web")(app)
 
 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT||3000, () => {
     console.log("server stated");
 })
