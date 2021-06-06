@@ -81,7 +81,7 @@ function initroute(app)
    else{
        req.body.available=true
    }
-   console.log(req.body)
+ 
       const update=await Menu.findByIdAndUpdate(id,req.body,{runValidators:true,new:true}) 
        res.redirect('/admin/show')
     })

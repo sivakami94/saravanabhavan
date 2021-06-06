@@ -31,11 +31,12 @@
         <% if(messages.error1){ %>
             <span class="text-danger text-sm"> <%= messages.error1 %></span>
             <% } %>
-            <input name="confirmpassword" value="<%=messages.confirmpassword %>" type="password" class="form-control" placeholder="confirm password" >
-
-            
+            <input name="confirmpassword" id="conpassword" value="<%=messages.confirmpassword %>" type="password" class="form-control" placeholder="confirm password" >     
     </div>
- 
+    <div class="custom-control custom-switch">
+        <input  name="showpass"type="checkbox" class="custom-control-input" id="showpass" >
+        <label class="custom-control-label"  for="showpass">Show Password</label>
+      </div>
     <br>
     <input class="btn btn-danger" class="form-control" id ="submit"type="submit" value="Register">
     <br>

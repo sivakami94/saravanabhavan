@@ -4,8 +4,21 @@ import menu from '../../apps/models/menu';
 let minus=document.querySelectorAll("#minus");
 let add=document.querySelectorAll("#add");
 let cartCounter=document.querySelector("#cartCounter")
-let available=document.getElementById("check")
-
+document.getElementById("showpass").onclick=function() {showpassword()}
+function showpassword()
+{
+  var x = document.getElementById("password");
+  var y = document.getElementById("conpassword");
+  if(x.type=="password"|| y.type=="password")
+  {
+    x.type = "text";
+    y.type = "text";
+  }
+  else{
+    x.type = "password";
+    y.type = "password";
+  }
+}
  function Minus(menu)
 {  
   axios.post("/minus-cart",menu).then((res)=>{
