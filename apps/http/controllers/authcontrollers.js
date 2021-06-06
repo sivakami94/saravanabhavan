@@ -11,7 +11,7 @@ function authcontrollers()
                 },
                postLogin(req,res,next)
                 {
-                   const {email,password,role,showpass}=req.body
+                   const {email,password,role}=req.body
                    //validate request
                     if(!email || !password||!role )
                       {

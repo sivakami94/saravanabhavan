@@ -1886,10 +1886,18 @@ __webpack_require__.r(__webpack_exports__);
 var minus = document.querySelectorAll("#minus");
 var add = document.querySelectorAll("#add");
 var cartCounter = document.querySelector("#cartCounter");
+document.getElementById("show").addEventListener("click", show);
+document.getElementById("showpass").addEventListener("click", showpassword);
 
-document.getElementById("showpass").onclick = function () {
-  showpassword();
-};
+function show() {
+  var pass = document.getElementById("pass");
+
+  if (pass.type == "password") {
+    pass.type = "text";
+  } else {
+    pass.type = "password";
+  }
+}
 
 function showpassword() {
   var x = document.getElementById("password");
