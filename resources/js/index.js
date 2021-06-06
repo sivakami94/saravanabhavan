@@ -4,23 +4,10 @@ import menu from '../../apps/models/menu';
 let minus=document.querySelectorAll("#minus");
 let add=document.querySelectorAll("#add");
 let cartCounter=document.querySelector("#cartCounter")
-document.getElementById("show").addEventListener("click",show);
-document.getElementById("showpass").addEventListener("click",showpassword);
+
+document.querySelectorAll("#showpass")
 
 
-function show()
-{
-  var pass = document.getElementById("pass");
-
-  if(pass.type=="password")
-  {
-   
-    pass.type = "text";
-  }
-  else{
-    pass.type = "password";
-  }
-}
 function showpassword()
 {
   var x = document.getElementById("password");

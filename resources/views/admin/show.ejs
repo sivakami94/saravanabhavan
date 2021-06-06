@@ -58,11 +58,7 @@
                  <%= show.price %>
              </td>
               <td>
-                <% if(show.available==true){ %>
-                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA10lEQVRIS+2U3Q2CMBRGD8oAbCIj6CY++O4IwgYOYIyb6Ai6SQco0RQKYgPc8vdgAo+knMP3tb0BMz/BzHwWgdjwUlFR0T6KwhVHfVWp29n4igx8zR2ICUj1RSV1yThBHQ4vnbHlptQ0Ag+4EQ1L4AnvFISHKNGasxs539Cy85ZaxIoMnDcn4KkzdpWkJ7w9QQF6AJtKAvT58zJF+x44EvtBjEctYkXVgl+Jed14FLsGknyKvhKazrk07WSBHQU5yLlEEnz4PfAh2zV+CXoApx92gvz/E3wAEgZdGRoKuWQAAAAASUVORK5CYII="/>
-               <%  }else{ %>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA6ElEQVRIS+2UwQ3CMAxFHVB66AGVSegIZQOYFDagI8AkRBx6aFSCjBpUrDhOkSIu7bFy/rP/d6Ig86cy68MCEB3+r0WPsjwMRdFujTGhVu9VVa37vtl03ZkbhZ0AxZ1SJwC4PrXeUwiKr6y9AECtnDtyEBbw7s7a1gHsKORLHOA2aN1wU0YzCEHQik/ngjjWiiFTyOh1rRLEkwBYRCDYVdSWaeDiBB7gbRkPB4MPbZIIoIGiSCj42WtKO/e24H9uu2ZNEFvF2ApTiHjRuECnkJ8uGnaS9akQn8nEAnGLEnXYsgUgOpjdohe+7KgZu32lmwAAAABJRU5ErkJggg=="/>
-               <% } %>
+               <%= show.available %>
               </td>
              </tr>
      <td>

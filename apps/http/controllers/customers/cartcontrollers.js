@@ -43,7 +43,7 @@ function cartcontrollers(){
           cart.totalQty=cart.totalQty+1
           cart.totalPrice=cart.totalPrice +req.body.price
        }
-         
+       
          return res.json({totalQty:req.session.cart.totalQty})
      
        },
@@ -72,7 +72,7 @@ function cartcontrollers(){
      if(!cart.items[req.body._id]){
              cart.items[req.body._id]={
                 item:req.body,   
-                qty:-1
+                qty:0
            }
         //    if(qty>0)
         //    {
@@ -88,7 +88,7 @@ function cartcontrollers(){
           cart.items[req.body._id].qty= cart.items[req.body._id].qty-1
           cart.totalQty=cart.totalQty-1
           cart.totalPrice=cart.totalPrice -req.body.price
-          console.log("hi")
+        
          }
        if(cart.items[req.body._id].totalQty==0)
        {
