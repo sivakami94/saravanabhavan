@@ -12,6 +12,7 @@ const { request } = require("express")
 
 //models
 const Menu = require('../apps/models/menu')
+const Order=require("../apps/models/order")
 
 
 const crypto=require("crypto");
@@ -39,6 +40,11 @@ function initroute(app)
     //customer routes
     app.post('/orders',ordercontrollers().store)
     app.get('/admin/orders',ordercontrollers().index)
+    app.delete("/admin/:id",async(req,res)=>{
+        const{id}=req.params;
+        const orderdel=await Order.findByIdAndDelete(id);
+       res.redirect("/admin/orders")
+    })
      
     //Admin routes
     app.get("/admin/new",newitems().new)

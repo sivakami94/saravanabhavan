@@ -39,8 +39,6 @@ function ordercontrollers(){
       async index(req,res){
        
            const orders=await Order.find().sort({createdAt:-1});
-            
-          
             res.render('admin/orders',{ orders: orders ,moment:moment})
        }
            

@@ -36,6 +36,7 @@
             </td>
                  <td>
                       <%= order.phone %>
+                      <p><a href="tel:+ <%= order.phone %>"><%= order.phone %></a></p>
                 </td>
                 <td>
                      <p> <%= order.door %></p>
@@ -47,6 +48,13 @@
                </td>
                 <td>
                       <%=moment(order.createdAt).format("hh:mm A") %>
+               </td>
+               <td>
+                <form action="/admin/<%= order._id %>?_method=DELETE" method="POST">
+                  <button class="btn btn-danger">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+                    Remove</button>
+                  </form>
                </td>
              </tr>
             <%  }) %>

@@ -24,8 +24,16 @@
                 <div class="form-group">
                      <input name="password" type="password" class="form-control" placeholder="password">
                 </div>
+                <div class="custom-control custom-switch">
+                    <input  name="available"type="checkbox" class="custom-control-input" id="check" value="<%= edit.available %>" >
+                    <label class="custom-control-label" for="check">Show password</label>
+               </div>
+              
                 <input class="btn login" class="form-control" type="submit" value="Login"> 
-                <a class="nav-link" href="/register"> create a new account?</a>
+              <br>
+              <br>
+              Create a new account?
+                <a class="link" href="/register">Register</a>
     
         </form>
   </div>

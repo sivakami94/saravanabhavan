@@ -3,24 +3,24 @@
   <% if(session.cart) { %>
       <% if(session.cart.totalQty) { %>
     
-    <div class="container-fuild bg-white p-5 text-center"> 
-        <div>
-            <img  src="./Images/full-cart.jpg"width="10%" height="auto"alt="full-cart">
+    <div class="container-fuild bg-white p-5"> 
+        <div class="text-center">
+            <img  src="./Images/full-cart.jpg"width="15%" height="auto"alt="full-cart">
             <h4 class="text-danger">Order summary</h4>
         </div>
-        <div class="jumbotron bg-warning m-5 p-4">
+        <div class="jumbotron bg-warning m-lg-5  p-lg-3">
         <% for(let menu of Object.values(session.cart.items)) { %>
             <% if(menu.qty) { %>
               <div class="row">
                <div class="col-lg-4">
-                   <img class="float-left pr-3" src="./Images/<%= menu.item.image %>" width="80px" height="70px">
+                   <img class="float-lg-left pr-3" src="./Images/<%= menu.item.image %>" width="80px" height="70px">
                    <h4 class="text-left  p-3"><%= menu.item.name %></h4>
                </div>
                <div class="col-lg-4">
-                    <h4 class="p-3"><%= menu.qty %> pcs</h4>
+                    <h4 class="text-center p-3"><%= menu.qty %> pcs</h4>
                </div>
                <div class="col-lg-4">
-                   <h4 class="p-3">₹<%= menu.item.price*menu.qty %> </h4>
+                   <h4 class="text-center p-3">₹<%= menu.item.price*menu.qty %> </h4>
                </div>
              </div>
             <hr>
@@ -66,7 +66,7 @@
                     </div>
                    <div class="form-inline">
                         <legend >Phone Number:</legend>
-                        <input name="phone" class="form-control" type="tel" data-format="+1 (ddd) ddd-dddd" data-number="15555555555"placeholder="Phone Number" >
+                        <input name="phone" class="form-control" type="tel"  pattern="[0-9]{10}" title=" Enter 10 digits"placeholder="Phone Number" >
                   </div>
                    <br>
                  
@@ -84,7 +84,7 @@
      </div>
      <br>
       <img  src="./Images/empty-cart.jpeg" width="50%" height="auto"alt="empty-cart">
-      <img src=".\images\caption.jpg" width="300px" height="400px">
+    
         </div>
   <% } %>
       

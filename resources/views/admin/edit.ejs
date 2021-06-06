@@ -1,10 +1,12 @@
 
-
+ 
 <div class="container pt-5">
     <div class="col-md-6 col-lg-12 " >
-      <div class="jumbotron mt-5 pt-5">
+      <div class="edit jumbotron mt-5 pt-5">
 <form action="/admin/<%= edit._id %>?_method=PUT" method="POST">
-  <h2>Edit Items</h2>
+  <h2>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAABgElEQVRYR+3W0VHEIBAGYHbzHKSEswK1g7OE68ASLMUOLEE7UDuwFC55vQEHh2QwJvCTg5nc6L1mB77s/oEjsbEfbcwj/g5IKaVOp9MNEammaT601hqZRpUOKaVujTEvQoidR2hmvtdaf6ZQxUEe8yaEUJPNIVRR0Azm6FFXaKeKgeYwzLx3EGPMuxAiRF0vZaoIaAkzZMY/H1HW2kPf969zeTobtJCZH3mZ1lQDRQLsXv4b5UcWhvzIzLviI5sbk7X2kYiewrz4sQxfnMPsY5//qpHFMjPNS5CTJMbVZoNSAXaLtm37QETPuZhsEIJBamKnNdwhZCOkpsjVgWyE1KQw0MiQjZAaBJMEIRshNSgmCkI2QmpyMFGQlNL9oRouxF9nSA1MCmSHt2Pmu/B0rYWBQV3XjcdDTUw2qDYGBi0EE7qbSoZ6zNDMolUwaztUDZM8GHPbXaIevlxLbIascTkgKWUs1MjLRmvCsy0sXOzQP8i36XIydHZIVi6wuQ59AaVlWTT8ByOYAAAAAElFTkSuQmCC"/>
+    Edit Items</h2>
     <div class="form-group">
      <legend>Category</legend>
     <input name="category" type="text" class="form-control" value="<%= edit.category %>"  placeholder="Enter Item Category" >
@@ -36,4 +38,4 @@
    
 </div>
 </div>
-</div>
+</div> 

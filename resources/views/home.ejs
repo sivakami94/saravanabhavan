@@ -30,9 +30,10 @@
   <div class="tab-pane fade show active" id="v-pills-special" role="tabpanel" aria-labelledby="v-pills-special-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Special") { %>
+         
+        <% if( menu.category.toLowerCase()=="special") { %>
           <div class="col-sm-6 col-lg-4">
-            <div class="card p-3 m-sm-3" style="width: 250px;">
+            <div class="card p-3  " style="width: 250px;">
               <h5><%= menu.name %></h5>
               <img src="./Images/<%=menu.image %>"  class="card-img-top" alt="...">
               <div class="card-body">
@@ -61,7 +62,7 @@
   <div class="tab-pane fade show " id="v-pills-dosa" role="tabpanel" aria-labelledby="v-pills-dosa-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Dosa") { %>
+        <% if( menu.category.toLowerCase()=="dosa") { %>
       <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>
@@ -91,7 +92,7 @@
   <div class="tab-pane fade" id="v-pills-idly" role="tabpanel" aria-labelledby="v-pills-idly-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Idly") { %>
+        <% if( menu.category.toLowerCase()=="idly") { %>
           <div class="col-sm-6 col-lg-4">
             <div class="card p-3 m-sm-3" style="width: 250px;">
               <h5><%= menu.name %></h5>
@@ -121,7 +122,7 @@
   <div class="tab-pane fade" id="v-pills-chappathi" role="tabpanel" aria-labelledby="v-pills-chappathi-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Chappathi"){ %>
+        <% if( menu.category.toLowerCase()=="chappathi"){ %>
           <div class="col-sm-6 col-lg-4">
             <div class="card p-3 m-sm-3" style="width: 250px;">
               <h5><%= menu.name %></h5>
@@ -152,7 +153,7 @@
   <div class="tab-pane fade" id="v-pills-kolukattai" role="tabpanel" aria-labelledby="v-pills-kolukattai-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Kolukattai") { %>
+        <% if( menu.category.toLowerCase()=="kolukattai") { %>
           <div class="col-sm-6 col-lg-4">
             <div class="card p-3 m-sm-3" style="width: 250px;">
               <h5><%= menu.name %></h5>
@@ -175,7 +176,7 @@
   <div class="tab-pane fade show " id="v-pills-parotta" role="tabpanel" aria-labelledby="v-pills-parotta-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Parotta") { %>
+        <% if( menu.category.toLowerCase()=="parotta") { %>
       <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>
@@ -205,7 +206,7 @@
   <div class="tab-pane fade show " id="v-pills-rice" role="tabpanel" aria-labelledby="v-pills-rice-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Rice") { %>
+        <% if( menu.category.toLowerCase()=="rice") { %>
       <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>
@@ -235,7 +236,7 @@
   <div class="tab-pane fade show " id="v-pills-noodles" role="tabpanel" aria-labelledby="v-pills-noodles-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Noodles") { %>
+        <% if( menu.category.toLowerCase()=="noodles") { %>
       <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>
@@ -258,7 +259,7 @@
   <div class="tab-pane fade show " id="v-pills-briyani" role="tabpanel" aria-labelledby="v-pills-briyani-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Briyani") { %>
+        <% if( menu.category.toLowerCase()=="briyani") { %>
       <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>
@@ -281,7 +282,7 @@
   <div class="tab-pane fade show " id="v-pills-manjurian" role="tabpanel" aria-labelledby="v-pills-manjurian-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Manjurian") { %>
+        <% if( menu.category.toLowerCase()=="manjurian") { %>
       <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>
@@ -304,7 +305,7 @@
   <div class="tab-pane fade show " id="v-pills-chilly" role="tabpanel" aria-labelledby="v-pills-chilly-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Chilly") { %>
+        <% if( menu.category.toLowerCase()=="chilly") { %>
       <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>
@@ -334,7 +335,7 @@
   <div class="tab-pane fade show" id="v-pills-masala" role="tabpanel" aria-labelledby="v-pills-masala-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Masala") { %>
+        <% if( menu.category.toLowerCase()=="masala") { %>
       <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>
@@ -364,7 +365,7 @@
   <div class="tab-pane fade show " id="v-pills-drinks" role="tabpanel" aria-labelledby="v-pills-drinks-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Drinks") { %>
+        <% if( menu.category.toLowerCase()=="drinks") { %>
       <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>
@@ -394,7 +395,7 @@
   <div class="tab-pane fade show active" id="v-pills-icecream" role="tabpanel" aria-labelledby="v-pills-icecream-tab">
     <div class="row">
       <% menus.forEach(function(menu){ %>
-        <% if(menu.category=="Ice Cream") { %>
+        <% if( menu.category.toLowerCase()=="ice cream") { %>
       <div class="col-sm-6 col-lg-4">
         <div class="card p-3 m-sm-3" style="width: 250px;">
           <h5><%= menu.name %></h5>

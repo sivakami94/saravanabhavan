@@ -1,54 +1,837 @@
 
+  
+    <div class="container-fluid pt-5">
+      <div class="row">
+        <div class="col-lg-2  home_nav ">
+              <div class="nav flex-column  pt-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              
+                <a class="nav-link active" id="v-pills-special-tab" data-toggle="pill" href="#v-pills-special" role="tab" aria-controls="v-pills-special" aria-selected="true">Special Items</a>
+                <br>
+               <a class="nav-link " id="v-pills-dosa-tab" data-toggle="pill" href="#v-pills-dosa" role="tab" aria-controls="v-pills-dosa" aria-selected="false">Dosa </a>
+               <a class="nav-link" id="v-pills-idly-tab" data-toggle="pill" href="#v-pills-idly" role="tab" aria-controls="v-pills-idly" aria-selected="false">Idly</a>
+               <a class="nav-link" id="v-pills-chappathi-tab" data-toggle="pill" href="#v-pills-chappathi" role="tab" aria-controls="v-pills-parotta" aria-selected="false">Chappathi</a>
+               <a class="nav-link" id="v-pills-kolukattai-tab" data-toggle="pill" href="#v-pills-kolukattai" role="tab" aria-controls="v-pills-briyani" aria-selected="false">Kolukattai</a>
+               <a class="nav-link" id="v-pills-parotta-tab" data-toggle="pill" href="#v-pills-parotta" role="tab" aria-controls="v-pills-parotta" aria-selected="false">Parotta</a>
+               <a class="nav-link" id="v-pills-rice-tab" data-toggle="pill" href="#v-pills-rice" role="tab" aria-controls="v-pills-rice" aria-selected="false">Rice</a>
+               <a class="nav-link" id="v-pills-noodles-tab" data-toggle="pill" href="#v-pills-noodles" role="tab" aria-controls="v-pills-noodles" aria-selected="false">Noodles</a>
+               <a class="nav-link" id="v-pills-briyani-tab" data-toggle="pill" href="#v-pills-briyani" role="tab" aria-controls="v-pills-briyani" aria-selected="false">Briyani</a>
+               <a class="nav-link" id="v-pills-manjurian-tab" data-toggle="pill" href="#v-pills-manjurian" role="tab" aria-controls="v-pills-manjurian" aria-selected="false">Manjurian</a>
+               <a class="nav-link" id="v-pills-chilly-tab" data-toggle="pill" href="#v-pills-chilly" role="tab" aria-controls="v-pills-chilly" aria-selected="false">Chilly</a>
+               <a class="nav-link" id="v-pills-masala-tab" data-toggle="pill" href="#v-pills-masala" role="tab" aria-controls="v-pills-masala" aria-selected="false">Masala</a>
+               <a class="nav-link" id="v-pills-drinks-tab" data-toggle="pill" href="#v-pills-drinks" role="tab" aria-controls="v-pills-drinks" aria-selected="false">Drinks</a>
+               <a class="nav-link" id="v-pills-icecream-tab" data-toggle="pill" href="#v-pills-icecream" role="tab" aria-controls="v-pills-icecream" aria-selected="false">Ice Cream</a>
+              </div>
+            </div>
 
-<div class="container mx-auto">
-    <h1>All Orders</h1>
+<div class="col-md-9  float-left">
+
+ <div class="tab-content pt-5" id="v-pills-tabContent">
+  <div class="tab-pane fade show active" id="v-pills-special" role="tabpanel" aria-labelledby="v-pills-special-tab">
+    <div class="row">
+      
+<table class="table">
+  <thead  class="thead">
+    <tr>
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="special") { %>
+             <tr> 
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+             </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
+     <td>
+         <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA90lEQVRIS7WU3Q3CMAyEL1J5rFRPAiPAJKwCIzARjNBOEqS+RiqylKAqOD8ObR8b9z77zo3Bzo/ZWR/NAGvtcACuCzA44EFEb6nZJgCLd8ATwMmLjg64SBA1IBKfPOAIQISoALG4A84M6IAXAIbce6Lb2qpqQMoWDwh2tQFytvhuOYuJJ4pzKE5QYQszRHE+yAIkce4w9V61pluIJyfYSlwEbCkuAmZrR7/T3+A0nsc5/IQ8W7twkQNIG2hVyAHQE5l/Og+w5ARRN8k9L133NYBm8eKPVuqu5rx4VdSI5GpqLFIxeDmy13XYIpXqqrgIaBVOfbd7Bh+wG60ZwL20KQAAAABJRU5ErkJggg=="/>
+          Edit</a>
+     </td>
+     <td>
+      <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+      <button class="btn btn-danger">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+        Remove</button>
+      </form>
+  </td>
+     <% } %>
+     <% }) %>
+  </tbody>
+</table>
+    </div>
+  </div>
+  <div class="tab-pane fade show" id="v-pills-dosa" role="tabpanel" aria-labelledby="v-pills-dosa-tab">
+    <div class="row">
+      
+<table class="table">
+  <thead  class="thead">
+    <tr>
+    
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="dosa") { %>
+             <tr>
+                
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+             </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
     
    
-<table class="table">
-    <thead>
-      <tr>
-      
-        <th scope="col">Image Url</th>
-        <th scope="col">Item Id</th>
-        <th scope="col">Item Name</th>
-        <th scope="col">Item Price</th>
-        <th scope="col">Item Available</th>
-      </tr>
-    </thead>
-    <tbody id="orderTableBody">
-      
-     <% shows.forEach(function(show) { %>
-               <tr>
-                  
-                <td>
-                    <%= show.image %>
-               </td>
-                <td>
-               <p> <%= show._id %></p>
-                </td>
-         <td>
-             <%= show.name  %>
-         </td>
-        
-         <td>
-            <%= show.price %>
-        </td>
-        <td>
-             <%= show.available %>
-        </td>
-        </tr>
-      
-     
-       <td>
-           <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">Edit</a>
+             <td>
+              <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">
+               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA90lEQVRIS7WU3Q3CMAyEL1J5rFRPAiPAJKwCIzARjNBOEqS+RiqylKAqOD8ObR8b9z77zo3Bzo/ZWR/NAGvtcACuCzA44EFEb6nZJgCLd8ATwMmLjg64SBA1IBKfPOAIQISoALG4A84M6IAXAIbce6Lb2qpqQMoWDwh2tQFytvhuOYuJJ4pzKE5QYQszRHE+yAIkce4w9V61pluIJyfYSlwEbCkuAmZrR7/T3+A0nsc5/IQ8W7twkQNIG2hVyAHQE5l/Og+w5ARRN8k9L133NYBm8eKPVuqu5rx4VdSI5GpqLFIxeDmy13XYIpXqqrgIaBVOfbd7Bh+wG60ZwL20KQAAAABJRU5ErkJggg=="/>
+               Edit</a>
+          </td>
+          <td>
+           <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+           <button class="btn btn-danger">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+             Remove</button>
+           </form>
        </td>
-       <td>
-        <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
-        <button class="btn btn-danger">Remove</button>
-        </form>
-    </td>
+     <% } %>
+     <% }) %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  <div class="tab-pane fade" id="v-pills-idly" role="tabpanel" aria-labelledby="v-pills-idly-tab">
+    <div class="row">
+      
+<table class="table">
+  <thead  class="thead">
+    <tr>
     
-       <% }) %>
-    </tbody>
-  </table>
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="idly") { %>
+             <tr>
+                
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+              </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
+             <td>
+              <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">
+               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA90lEQVRIS7WU3Q3CMAyEL1J5rFRPAiPAJKwCIzARjNBOEqS+RiqylKAqOD8ObR8b9z77zo3Bzo/ZWR/NAGvtcACuCzA44EFEb6nZJgCLd8ATwMmLjg64SBA1IBKfPOAIQISoALG4A84M6IAXAIbce6Lb2qpqQMoWDwh2tQFytvhuOYuJJ4pzKE5QYQszRHE+yAIkce4w9V61pluIJyfYSlwEbCkuAmZrR7/T3+A0nsc5/IQ8W7twkQNIG2hVyAHQE5l/Og+w5ARRN8k9L133NYBm8eKPVuqu5rx4VdSI5GpqLFIxeDmy13XYIpXqqrgIaBVOfbd7Bh+wG60ZwL20KQAAAABJRU5ErkJggg=="/>
+               Edit</a>
+          </td>
+          <td>
+           <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+           <button class="btn btn-danger">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+             Remove</button>
+           </form>
+       </td>
+    <% } %>
+     <% }) %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  <div class="tab-pane fade" id="v-pills-chappathi" role="tabpanel" aria-labelledby="v-pills-chappathi-tab">
+    <div class="row">
+       
+<table class="table">
+  <thead  class="thead">
+    <tr>
+    
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="chappathi") { %>
+             <tr>
+                
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+             </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
+    
+   
+             <td>
+              <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">
+               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA90lEQVRIS7WU3Q3CMAyEL1J5rFRPAiPAJKwCIzARjNBOEqS+RiqylKAqOD8ObR8b9z77zo3Bzo/ZWR/NAGvtcACuCzA44EFEb6nZJgCLd8ATwMmLjg64SBA1IBKfPOAIQISoALG4A84M6IAXAIbce6Lb2qpqQMoWDwh2tQFytvhuOYuJJ4pzKE5QYQszRHE+yAIkce4w9V61pluIJyfYSlwEbCkuAmZrR7/T3+A0nsc5/IQ8W7twkQNIG2hVyAHQE5l/Og+w5ARRN8k9L133NYBm8eKPVuqu5rx4VdSI5GpqLFIxeDmy13XYIpXqqrgIaBVOfbd7Bh+wG60ZwL20KQAAAABJRU5ErkJggg=="/>
+               Edit</a>
+          </td>
+          <td>
+           <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+           <button class="btn btn-danger">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+             Remove</button>
+           </form>
+       </td>
+       <% } %>
+     <% }) %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  <div class="tab-pane fade" id="v-pills-kolukattai" role="tabpanel" aria-labelledby="v-pills-kolukattai-tab">
+    <div class="row">
+      
+<table class="table">
+  <thead  class="thead">
+    <tr>
+    
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="kolukattai") { %>
+             <tr>
+                
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+             </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
+    
+   
+     <td>
+         <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">Edit</a>
+     </td>
+     <td>
+      <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+      <button class="btn btn-danger">Remove</button>
+      </form>
+  </td>
+        <% } %>
+     <% }) %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  <div class="tab-pane fade show " id="v-pills-parotta" role="tabpanel" aria-labelledby="v-pills-parotta-tab">
+    <div class="row">
+      
+<table class="table">
+  <thead  class="thead">
+    <tr>
+    
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="parotta") { %>
+             <tr>
+                
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+             </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
+    
+   
+             <td>
+              <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">
+               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA90lEQVRIS7WU3Q3CMAyEL1J5rFRPAiPAJKwCIzARjNBOEqS+RiqylKAqOD8ObR8b9z77zo3Bzo/ZWR/NAGvtcACuCzA44EFEb6nZJgCLd8ATwMmLjg64SBA1IBKfPOAIQISoALG4A84M6IAXAIbce6Lb2qpqQMoWDwh2tQFytvhuOYuJJ4pzKE5QYQszRHE+yAIkce4w9V61pluIJyfYSlwEbCkuAmZrR7/T3+A0nsc5/IQ8W7twkQNIG2hVyAHQE5l/Og+w5ARRN8k9L133NYBm8eKPVuqu5rx4VdSI5GpqLFIxeDmy13XYIpXqqrgIaBVOfbd7Bh+wG60ZwL20KQAAAABJRU5ErkJggg=="/>
+               Edit</a>
+          </td>
+          <td>
+           <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+           <button class="btn btn-danger">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+             Remove</button>
+           </form>
+       </td>
+       <% } %>
+     <% }) %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  <div class="tab-pane fade show " id="v-pills-rice" role="tabpanel" aria-labelledby="v-pills-rice-tab">
+    <div class="row">
+      
+<table class="table">
+  <thead  class="thead">
+    <tr>
+    
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="rice") { %>
+             <tr>
+                
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+             </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
+    
+   
+             <td>
+              <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">
+               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA90lEQVRIS7WU3Q3CMAyEL1J5rFRPAiPAJKwCIzARjNBOEqS+RiqylKAqOD8ObR8b9z77zo3Bzo/ZWR/NAGvtcACuCzA44EFEb6nZJgCLd8ATwMmLjg64SBA1IBKfPOAIQISoALG4A84M6IAXAIbce6Lb2qpqQMoWDwh2tQFytvhuOYuJJ4pzKE5QYQszRHE+yAIkce4w9V61pluIJyfYSlwEbCkuAmZrR7/T3+A0nsc5/IQ8W7twkQNIG2hVyAHQE5l/Og+w5ARRN8k9L133NYBm8eKPVuqu5rx4VdSI5GpqLFIxeDmy13XYIpXqqrgIaBVOfbd7Bh+wG60ZwL20KQAAAABJRU5ErkJggg=="/>
+               Edit</a>
+          </td>
+          <td>
+           <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+           <button class="btn btn-danger">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+             Remove</button>
+           </form>
+       </td>
+       <% } %>
+     <% }) %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  <div class="tab-pane fade show " id="v-pills-noodles" role="tabpanel" aria-labelledby="v-pills-noodles-tab">
+    <div class="row">
+       
+<table class="table">
+  <thead  class="thead">
+    <tr>
+    
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="noodles") { %>
+             <tr>
+                
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+             </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
+    
+   
+             <td>
+              <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">
+               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA90lEQVRIS7WU3Q3CMAyEL1J5rFRPAiPAJKwCIzARjNBOEqS+RiqylKAqOD8ObR8b9z77zo3Bzo/ZWR/NAGvtcACuCzA44EFEb6nZJgCLd8ATwMmLjg64SBA1IBKfPOAIQISoALG4A84M6IAXAIbce6Lb2qpqQMoWDwh2tQFytvhuOYuJJ4pzKE5QYQszRHE+yAIkce4w9V61pluIJyfYSlwEbCkuAmZrR7/T3+A0nsc5/IQ8W7twkQNIG2hVyAHQE5l/Og+w5ARRN8k9L133NYBm8eKPVuqu5rx4VdSI5GpqLFIxeDmy13XYIpXqqrgIaBVOfbd7Bh+wG60ZwL20KQAAAABJRU5ErkJggg=="/>
+               Edit</a>
+          </td>
+          <td>
+           <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+           <button class="btn btn-danger">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+             Remove</button>
+           </form>
+       </td>
+  
+       <% } %>
+     <% }) %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  <div class="tab-pane fade show " id="v-pills-briyani" role="tabpanel" aria-labelledby="v-pills-briyani-tab">
+    <div class="row">
+      
+<table class="table">
+  <thead  class="thead">
+    <tr>
+    
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="briyani") { %>
+             <tr>
+                
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+             </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
+    
+   
+             <td>
+              <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">
+               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA90lEQVRIS7WU3Q3CMAyEL1J5rFRPAiPAJKwCIzARjNBOEqS+RiqylKAqOD8ObR8b9z77zo3Bzo/ZWR/NAGvtcACuCzA44EFEb6nZJgCLd8ATwMmLjg64SBA1IBKfPOAIQISoALG4A84M6IAXAIbce6Lb2qpqQMoWDwh2tQFytvhuOYuJJ4pzKE5QYQszRHE+yAIkce4w9V61pluIJyfYSlwEbCkuAmZrR7/T3+A0nsc5/IQ8W7twkQNIG2hVyAHQE5l/Og+w5ARRN8k9L133NYBm8eKPVuqu5rx4VdSI5GpqLFIxeDmy13XYIpXqqrgIaBVOfbd7Bh+wG60ZwL20KQAAAABJRU5ErkJggg=="/>
+               Edit</a>
+          </td>
+          <td>
+           <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+           <button class="btn btn-danger">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+             Remove</button>
+           </form>
+       </td>
+       <% } %>
+     <% }) %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  <div class="tab-pane fade show " id="v-pills-manjurian" role="tabpanel" aria-labelledby="v-pills-manjurian-tab">
+    <div class="row">
+      
+<table class="table">
+  <thead  class="thead">
+    <tr>
+    
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="manjurian") { %>
+             <tr>
+                
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+             </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
+    
+   
+             <td>
+              <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">
+               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA90lEQVRIS7WU3Q3CMAyEL1J5rFRPAiPAJKwCIzARjNBOEqS+RiqylKAqOD8ObR8b9z77zo3Bzo/ZWR/NAGvtcACuCzA44EFEb6nZJgCLd8ATwMmLjg64SBA1IBKfPOAIQISoALG4A84M6IAXAIbce6Lb2qpqQMoWDwh2tQFytvhuOYuJJ4pzKE5QYQszRHE+yAIkce4w9V61pluIJyfYSlwEbCkuAmZrR7/T3+A0nsc5/IQ8W7twkQNIG2hVyAHQE5l/Og+w5ARRN8k9L133NYBm8eKPVuqu5rx4VdSI5GpqLFIxeDmy13XYIpXqqrgIaBVOfbd7Bh+wG60ZwL20KQAAAABJRU5ErkJggg=="/>
+               Edit</a>
+          </td>
+          <td>
+           <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+           <button class="btn btn-danger">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+             Remove</button>
+           </form>
+       </td>
+       <% } %>
+     <% }) %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  <div class="tab-pane fade show " id="v-pills-chilly" role="tabpanel" aria-labelledby="v-pills-chilly-tab">
+    <div class="row">
+      
+<table class="table">
+  <thead  class="thead">
+    <tr>
+    
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="chilly") { %>
+             <tr>
+                
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+             </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
+    
+   
+             <td>
+              <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">
+               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA90lEQVRIS7WU3Q3CMAyEL1J5rFRPAiPAJKwCIzARjNBOEqS+RiqylKAqOD8ObR8b9z77zo3Bzo/ZWR/NAGvtcACuCzA44EFEb6nZJgCLd8ATwMmLjg64SBA1IBKfPOAIQISoALG4A84M6IAXAIbce6Lb2qpqQMoWDwh2tQFytvhuOYuJJ4pzKE5QYQszRHE+yAIkce4w9V61pluIJyfYSlwEbCkuAmZrR7/T3+A0nsc5/IQ8W7twkQNIG2hVyAHQE5l/Og+w5ARRN8k9L133NYBm8eKPVuqu5rx4VdSI5GpqLFIxeDmy13XYIpXqqrgIaBVOfbd7Bh+wG60ZwL20KQAAAABJRU5ErkJggg=="/>
+               Edit</a>
+          </td>
+          <td>
+           <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+           <button class="btn btn-danger">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+             Remove</button>
+           </form>
+       </td>
+      <% } %>
+     <% }) %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  <div class="tab-pane fade show" id="v-pills-masala" role="tabpanel" aria-labelledby="v-pills-masala-tab">
+    <div class="row">
+       
+<table class="table">
+  <thead  class="thead">
+    <tr>
+    
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="masala") { %>
+             <tr>
+                
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+             </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
+    
+   
+             <td>
+              <a class="btn btn-danger" href="/admin/<%= show._id %>/edit" data-toggle="modal" data-target="#exampleModalCenter">
+               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA90lEQVRIS7WU3Q3CMAyEL1J5rFRPAiPAJKwCIzARjNBOEqS+RiqylKAqOD8ObR8b9z77zo3Bzo/ZWR/NAGvtcACuCzA44EFEb6nZJgCLd8ATwMmLjg64SBA1IBKfPOAIQISoALG4A84M6IAXAIbce6Lb2qpqQMoWDwh2tQFytvhuOYuJJ4pzKE5QYQszRHE+yAIkce4w9V61pluIJyfYSlwEbCkuAmZrR7/T3+A0nsc5/IQ8W7twkQNIG2hVyAHQE5l/Og+w5ARRN8k9L133NYBm8eKPVuqu5rx4VdSI5GpqLFIxeDmy13XYIpXqqrgIaBVOfbd7Bh+wG60ZwL20KQAAAABJRU5ErkJggg=="/>
+               Edit</a>
+          </td>
+          <td>
+           <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+           <button class="btn btn-danger">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+             Remove</button>
+           </form>
+       </td>
+      <% } %>
+     <% }) %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  <div class="tab-pane fade show " id="v-pills-drinks" role="tabpanel" aria-labelledby="v-pills-drinks-tab">
+    <div class="row">
+       
+<table class="table">
+  <thead  class="thead">
+    <tr>
+    
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="drinks") { %>
+             <tr>
+                
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+             </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
+    
+   
+             <td>
+              <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">
+               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA90lEQVRIS7WU3Q3CMAyEL1J5rFRPAiPAJKwCIzARjNBOEqS+RiqylKAqOD8ObR8b9z77zo3Bzo/ZWR/NAGvtcACuCzA44EFEb6nZJgCLd8ATwMmLjg64SBA1IBKfPOAIQISoALG4A84M6IAXAIbce6Lb2qpqQMoWDwh2tQFytvhuOYuJJ4pzKE5QYQszRHE+yAIkce4w9V61pluIJyfYSlwEbCkuAmZrR7/T3+A0nsc5/IQ8W7twkQNIG2hVyAHQE5l/Og+w5ARRN8k9L133NYBm8eKPVuqu5rx4VdSI5GpqLFIxeDmy13XYIpXqqrgIaBVOfbd7Bh+wG60ZwL20KQAAAABJRU5ErkJggg=="/>
+               Edit</a>
+          </td>
+          <td>
+           <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+           <button class="btn btn-danger">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+             Remove</button>
+           </form>
+       </td>
+      <% } %>
+     <% }) %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  <div class="tab-pane fade show" id="v-pills-icecream" role="tabpanel" aria-labelledby="v-pills-icecream-tab">
+    <div class="row">
+      
+<table class="table">
+  <thead  class="thead">
+    <tr>
+    
+      <th scope="col">Image Url</th>
+      <th scope="col">Item Id</th>
+      <th scope="col">Item Name</th>
+      <th scope="col">Item Price</th>
+      <th scope="col">Item Available</th>
+    </tr>
+  </thead>
+  <tbody id="orderTableBody">
+    
+   <% shows.forEach(function(show) { %>
+    <% if(show.category.toLowerCase()=="icecream") { %>
+             <tr>
+                
+              <td>
+                  <%= show.image %>
+             </td>
+              <td>
+                <p> <%= show._id %></p>
+              </td>
+              <td>
+               <%= show.name  %>
+              </td>
+      
+              <td>
+                 <%= show.price %>
+             </td>
+              <td>
+                 <%= show.available %>
+              </td>
+             </tr>
+    
+   
+             <td>
+              <a class="btn btn-danger" href="/admin/<%= show._id %>/edit">
+               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA90lEQVRIS7WU3Q3CMAyEL1J5rFRPAiPAJKwCIzARjNBOEqS+RiqylKAqOD8ObR8b9z77zo3Bzo/ZWR/NAGvtcACuCzA44EFEb6nZJgCLd8ATwMmLjg64SBA1IBKfPOAIQISoALG4A84M6IAXAIbce6Lb2qpqQMoWDwh2tQFytvhuOYuJJ4pzKE5QYQszRHE+yAIkce4w9V61pluIJyfYSlwEbCkuAmZrR7/T3+A0nsc5/IQ8W7twkQNIG2hVyAHQE5l/Og+w5ARRN8k9L133NYBm8eKPVuqu5rx4VdSI5GpqLFIxeDmy13XYIpXqqrgIaBVOfbd7Bh+wG60ZwL20KQAAAABJRU5ErkJggg=="/>
+               Edit</a>
+          </td>
+          <td>
+           <form action="/admin/<%= show._id %>?_method=DELETE" method="POST">
+           <button class="btn btn-danger">
+             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2VwRHCIBBF/96NbipQO0kpWpkpxVJiBTCmgHU4MIOGsAmE8ZLcGGDf/3+HLKHyR5XrIwkYjemI6CHAJSaEgEFE7k3bPueEJgFvawcCzimXDnJgvmYBRmvFXWyYo0K0fXc3HdHWAK+otPGh4y8H1QFe+ZJsQ5ep89nN2xTwq1Bbh/BFDrSCxRHtgMm7WhvJ3gP111QckUbIAVgAJ61wuC/A68g8mXzxl2xMJ0S9Ns08wBUnkVtsdP536K+JaO7sB7Dj1xkR+MqlAAAAAElFTkSuQmCC"/>
+             Remove</button>
+           </form>
+       </td>
+     <% } %>
+     <% }) %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+  </div>
+</div>
+
+
+</div>
+
 </div>

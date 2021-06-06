@@ -22,8 +22,12 @@ body {
   background-color: #e64607;
   float: left;
 }
-.loginsection2 a:hover {
-  color: red;
+.loginsection2 .link {
+  font-size: larger;
+  font-weight: bold;
+  color: #e64607;
+  padding: 20px;
+  text-underline-position: below;
 }
 .loginsection2 a:disabled {
   color: white;
@@ -52,10 +56,20 @@ body {
   background-color: #e64607;
   float: left;
 }
+.registersection2 .link {
+  font-size: larger;
+  font-weight: bold;
+  color: #e64607;
+  padding: 30px;
+  text-underline-position: below;
+}
 
 .header .navbar {
   background-color: #fa8a2e;
-  border-radius: 20px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 .header .navbar .nav-link {
   color: #631d04;
@@ -90,16 +104,15 @@ body {
   border-right: 1px solid orangered;
 }
 .home_nav a:hover {
-  background-color: orangered;
-}
-.home_nav a:active {
-  background-color: #7c2506;
+  background-color: #fa8a2e;
 }
 .home_nav a:visited {
   background-color: #7c2506;
 }
 
 .card {
+  margin-left: 50px;
+  margin-bottom: 10px;
   background-color: #f7b02e;
 }
 .card img {
@@ -137,5 +150,9 @@ body {
 }
 
 .thead {
+  background-color: #faba44;
+}
+
+.edit {
   background-color: #faba44;
 }
