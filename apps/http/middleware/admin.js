@@ -1,13 +1,13 @@
 
 function admin(req,res,next)
 {
-    if(!req.isAuthenticated()  && req.user.password == "saravanabhavan123") 
+    if(req.isAuthenticated()  && req.user.password == "saravanabhavan123") 
     {
         return next()
     }
-    else{
+    
      return res.redirect("/")
-    }
+    
 }
 
 

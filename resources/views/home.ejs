@@ -39,15 +39,16 @@
               <div class="card-body">
             
                   
-            <% if(menu.available==true){ %>
+            <% if(menu.available){ %>
+                <% console.log(menu.available) %>
               <div class="btn-group float-right" role="group" aria-label="Basic example">
-                <a data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger">-</a>
-                <a data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-danger">+</a>
+                <a data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger"  >-</a>
+                <a data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-danger" >+</a>
               </div> 
           <% } else{ %>
               <div class="btn-group float-right" role="group" aria-label="Basic example">
-                <a data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger" disabled>-</a>
-                <a data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-light" disabled>+</a>
+                <a data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger disabled" aria-disabled="true">-</a>
+                <a data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-light disabled"  aria-disabled="true">+</a>
               </div> 
           <%  }  %>
                   <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text">₹<%= menu.price %></h4>
@@ -379,8 +380,8 @@
               </div> 
           <% } else{ %>
               <div class="btn-group float-right" role="group" aria-label="Basic example">
-                <a data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-danger" disabled>-</a>
-                <a data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-light" disabled>+</a>
+                <a data-menu="<%= JSON.stringify(menu) %>" id="minus"  type="submit" class="btn btn-outline-warning" disabled>-</a>
+                <a data-menu="<%= JSON.stringify(menu) %>"id="add"  type="submit" class="btn btn-outline-warning" disabled>+</a>
               </div> 
           <%  }  %>
               <h4 data-menu="<%= JSON.stringify(menu) %>"class=" card-text">₹<%= menu.price %></h4>

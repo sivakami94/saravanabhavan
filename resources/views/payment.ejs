@@ -4,12 +4,12 @@
       <% if(session.cart) { %>
         <legend for="">Amount:</legend>
        
-            <!-- <div class="input-group mb-2">
+            <div class="input-group mb-2">
               <div class="input-group-prepend">
                 <div class="input-group-text">₹</div>
-              </div> -->
+              </div> 
               <input type="number" class="form-control" id="amount" readonly value=<%=session.cart.totalPrice %>>
-            <!-- </div> -->
+             </div>
         
         <button id="order"class="btn btn-danger " type="submit">Pay</button>
   
@@ -43,11 +43,8 @@
             "name"       :"payment",
             "description":"Bill Transaction",
             "order_id"   :order_id,
-             "handler"    ://function(req,response){
-            //     document.getElementById("order-pay-id").value=response.razorpay_payment_id;
-            //     document.getElementById("order-id").value=response.razorpay_order_id;
-            //     document.getElementById("order-sig").value=response.razorpay_signature;
-         
+             "handler"    :
+           
             async function (response) {
                     if(response.razorpay_payment_id && response.razorpay_order_id && response.razorpay_signature)
                     {
